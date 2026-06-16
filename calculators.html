@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Home Loan Calculators | Orange Mortgage &amp; Finance Brokers</title>
+<meta name="description" content="Free Perth home loan calculators: mortgage repayments, extra repayments, offset savings, WA stamp duty and Australian income tax. Estimate in seconds, then book a free chat." />
+<meta name="theme-color" content="#15120e" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --brand:#F47920;
+  --brand-d:#d8631a;
+  --brand-l:#ff9a4d;
+  --brand-tint:#fff1e4;
+  --dark:#1c1a16;          /* charcoal (brand-true dark, replaces reference green) */
+  --dark-2:#272320;
+  --ink:#1b1814;
+  --ink-2:#3c372f;
+  --grey:#6f685d;
+  --grey-l:#9a9286;
+  --page:#edeae4;          /* light neutral page bg (matches references) */
+  --card:#ffffff;
+  --line:#e2dccf;
+  --line-d:rgba(255,255,255,.14);
+
+  --display:"Plus Jakarta Sans","Inter",sans-serif;
+  --sans:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+
+  --maxw:1240px;
+  --gut:clamp(16px,3vw,28px);
+  --r:22px;
+  --r-lg:30px;
+  --ease:cubic-bezier(.22,.61,.36,1);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{font-family:var(--sans);background:var(--page);color:var(--ink);font-size:16.5px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img,svg{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+::selection{background:var(--brand);color:#fff}
+h1,h2,h3,h4{font-family:var(--display);font-weight:700;line-height:1.08;letter-spacing:-.02em}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 var(--gut)}
+.tag-lab{display:inline-flex;align-items:center;gap:8px;font-size:.78rem;font-weight:600;color:var(--brand-d);letter-spacing:.01em}
+.tag-lab .sq{width:13px;height:13px;border-radius:3px;background:var(--brand);display:inline-block}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;gap:.55em;font-family:var(--sans);font-weight:600;font-size:.94rem;
+  padding:14px 24px;border-radius:100px;border:1.5px solid transparent;cursor:pointer;transition:transform .28s var(--ease),background .25s,color .25s,border-color .25s,box-shadow .3s}
+.btn svg{width:16px;height:16px;transition:transform .28s var(--ease)}
+.btn:hover svg{transform:translate(3px,-3px)}
+.btn-brand{background:var(--brand);color:#fff;box-shadow:0 14px 30px -14px rgba(244,121,32,.6)}
+.btn-brand:hover{background:var(--brand-d);transform:translateY(-2px)}
+.btn-dark{background:var(--dark);color:#fff}.btn-dark:hover{background:#000;transform:translateY(-2px)}
+.btn-line{background:transparent;border-color:var(--line);color:var(--ink)}
+.btn-line:hover{border-color:var(--ink);transform:translateY(-2px)}
+.btn-wht{background:#fff;color:var(--ink)}.btn-wht:hover{transform:translateY(-2px);box-shadow:0 14px 30px -16px rgba(0,0,0,.4)}
+.iconbtn{width:42px;height:42px;border-radius:50%;border:1.5px solid var(--line);display:grid;place-items:center;flex:none;transition:.28s var(--ease)}
+.iconbtn svg{width:16px;height:16px;transition:transform .28s var(--ease)}
+
+/* ============================================================
+   HEADER
+   ============================================================ */
+header{position:sticky;top:0;z-index:80;padding-top:14px}
+.nav{max-width:var(--maxw);margin:0 auto;display:flex;align-items:center;gap:18px;
+  background:rgba(255,255,255,.82);backdrop-filter:blur(16px);border:1px solid var(--line);
+  border-radius:100px;padding:10px 12px 10px 22px;box-shadow:0 10px 30px -22px rgba(28,24,19,.5)}
+.brand{display:flex;align-items:center;flex:none}
+.brand img{height:40px;width:auto}
+.menu{display:flex;align-items:center;gap:4px;margin:0 auto;background:var(--page);border-radius:100px;padding:5px}
+.menu>li{list-style:none;position:relative}
+.menu>li>a{display:inline-flex;align-items:center;gap:6px;color:var(--ink-2);font-size:.9rem;font-weight:600;padding:9px 15px;border-radius:100px;cursor:pointer;transition:.2s}
+.menu>li>a:hover,.menu>li.on>a{background:#fff;color:var(--ink);box-shadow:0 4px 12px -8px rgba(0,0,0,.3)}
+.menu .ca{width:9px;height:9px;opacity:.6}
+.dd{position:absolute;top:100%;left:0;margin-top:12px;min-width:240px;background:#fff;border:1px solid var(--line);border-radius:18px;padding:9px;box-shadow:0 40px 80px -36px rgba(28,24,19,.4);opacity:0;visibility:hidden;transform:translateY(8px);transition:.26s var(--ease)}
+.menu>li:hover .dd{opacity:1;visibility:visible;transform:none}
+.dd a{display:block;padding:10px 13px;border-radius:11px;color:var(--grey);font-size:.9rem;font-weight:500;transition:.18s}
+.dd a:hover{background:var(--page);color:var(--ink)}
+.nav-right{display:flex;align-items:center;gap:12px;flex:none}
+.nav-phone{display:flex;align-items:center;gap:10px}
+.nav-phone .ic{width:42px;height:42px;border-radius:50%;background:var(--brand);color:#fff;display:grid;place-items:center;flex:none}
+.nav-phone .ic svg{width:18px;height:18px}
+.nav-phone b{display:block;font-size:.9rem;font-weight:700;color:var(--ink);line-height:1.1}
+.nav-phone span{font-size:.72rem;color:var(--grey-l)}
+.burger{display:none;width:44px;height:44px;border:1.5px solid var(--line);border-radius:50%;background:#fff;cursor:pointer;flex-direction:column;gap:4px;align-items:center;justify-content:center}
+.burger span{width:17px;height:2px;background:var(--ink);border-radius:2px}
+
+.drawer{position:fixed;inset:0;z-index:95;background:var(--dark);color:#fff;transform:translateX(100%);transition:transform .45s var(--ease);display:flex;flex-direction:column;padding:20px var(--gut)}
+.drawer.open{transform:translateX(0)}
+.drawer .dh{display:flex;justify-content:space-between;align-items:center;margin-bottom:24px}
+.drawer .dh img{height:42px;filter:brightness(0) invert(1)}
+.drawer-x{width:44px;height:44px;border:1px solid var(--line-d);border-radius:50%;background:none;color:#fff;font-size:1.4rem;cursor:pointer}
+.drawer nav{display:flex;flex-direction:column;border-top:1px solid var(--line-d)}
+.drawer nav a{font-family:var(--display);font-size:1.5rem;font-weight:600;padding:16px 0;border-bottom:1px solid var(--line-d)}
+.drawer .df{margin-top:auto;padding-top:22px;display:grid;gap:11px}
+.drawer .df .btn{justify-content:center}
+
+/* ============================================================
+   HERO
+   ============================================================ */
+.hero{padding:14px var(--gut) 0}
+.hero-card{position:relative;max-width:var(--maxw);margin:0 auto;border-radius:var(--r-lg);overflow:hidden;min-height:min(78vh,640px);display:flex;align-items:flex-end;color:#fff;isolation:isolate}
+.hero-card .bg{position:absolute;inset:0;z-index:-2}
+.hero-card .bg img{width:100%;height:100%;object-fit:cover}
+.hero-card::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(20,18,14,.18) 0%,rgba(20,18,14,.05) 35%,rgba(20,18,14,.78) 100%),linear-gradient(90deg,rgba(20,18,14,.55),rgba(20,18,14,0) 60%)}
+.hero-inner{width:100%;padding:clamp(26px,4vw,52px);display:grid;grid-template-columns:1.25fr .75fr;gap:30px;align-items:end}
+.hero-loc{display:inline-flex;align-items:center;gap:8px;font-size:.84rem;color:rgba(255,255,255,.88);margin-bottom:16px}
+.hero-loc svg{width:15px;height:15px}
+.hero h1{font-size:clamp(2.2rem,4.6vw,4rem);font-weight:800;letter-spacing:-.03em;max-width:16ch}
+.hero h1 .o{color:var(--brand-l)}
+.hero-cta{margin-top:26px;display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+/* floating stat cards */
+.hero-stats{display:grid;gap:12px}
+.hstat{background:rgba(28,26,22,.42);backdrop-filter:blur(14px);border:1px solid rgba(255,255,255,.18);border-radius:18px;padding:16px 18px;display:flex;align-items:center;justify-content:space-between;gap:14px}
+.hstat .tx b{font-family:var(--display);font-weight:700;font-size:1.4rem;display:block;letter-spacing:-.01em}
+.hstat .tx span{font-size:.8rem;color:rgba(255,255,255,.82);display:block;margin-top:2px;max-width:24ch}
+.hstat .gr{width:52px;height:52px;border-radius:50%;background:rgba(244,121,32,.22);border:1px solid rgba(255,255,255,.25);display:grid;place-items:center;flex:none;color:#fff}
+.hstat .gr svg{width:24px;height:24px}
+
+/* ============================================================
+   ABOUT STATEMENT
+   ============================================================ */
+.statement{padding:clamp(56px,8vw,104px) 0 clamp(40px,5vw,64px)}
+.statement .wrap{display:grid;grid-template-columns:140px 1fr;gap:20px}
+.statement .big{font-family:var(--display);font-weight:700;font-size:clamp(1.5rem,3.2vw,2.5rem);line-height:1.28;letter-spacing:-.02em;color:var(--ink)}
+.statement .big .o{color:var(--brand)}
+.statement .big .mut{color:var(--grey-l)}
+
+/* services list + image */
+.svc-intro{padding:clamp(20px,3vw,30px) 0 clamp(56px,8vw,100px)}
+.svc-intro .wrap{display:grid;grid-template-columns:.85fr 1.15fr;gap:clamp(30px,5vw,64px);align-items:center}
+.svc-photo{border-radius:var(--r);overflow:hidden;aspect-ratio:4/3.4;background:var(--line)}
+.svc-photo img{width:100%;height:100%;object-fit:cover}
+.svc-head h2{font-size:clamp(1.9rem,3.6vw,2.8rem);font-weight:700;letter-spacing:-.025em;margin:14px 0 14px}
+.svc-head p{color:var(--grey);font-size:1.02rem;max-width:34ch;margin-bottom:24px}
+.svc-list .hd{margin-bottom:18px}
+.svc-row{display:grid;grid-template-columns:42px 1fr 42px;gap:18px;align-items:center;padding:22px 4px;border-top:1px solid var(--line)}
+.svc-row:last-child{border-bottom:1px solid var(--line)}
+.svc-row .n{font-size:.86rem;color:var(--grey-l);font-weight:600}
+.svc-row h3{font-family:var(--display);font-size:clamp(1.15rem,2vw,1.4rem);font-weight:600;letter-spacing:-.01em}
+.svc-row .iconbtn{justify-self:end}
+.svc-row:hover .iconbtn{background:var(--brand);border-color:var(--brand)}
+.svc-row:hover .iconbtn svg{stroke:#fff;transform:translate(2px,-2px)}
+
+/* ============================================================
+   SECTION HEADS
+   ============================================================ */
+.sh{max-width:680px}
+.sh.center{margin:0 auto;text-align:center}
+.sh h2{font-size:clamp(1.9rem,3.8vw,2.9rem);font-weight:700;letter-spacing:-.025em;margin-top:14px}
+.sh h2 .mut{color:var(--grey-l)}
+.sh h2 .o{color:var(--brand)}
+.blk{padding:clamp(30px,5vw,60px) 0}
+
+/* ============================================================
+   WHY CHOOSE (white panel)
+   ============================================================ */
+.why{padding:0 var(--gut)}
+.why-panel{max-width:var(--maxw);margin:0 auto;background:var(--card);border-radius:var(--r-lg);padding:clamp(26px,4vw,56px)}
+.why-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,4vw,48px);align-items:center;margin-top:clamp(26px,3vw,40px)}
+.why-media{position:relative;border-radius:var(--r);overflow:hidden;aspect-ratio:1/1;background:var(--line)}
+.why-media img{width:100%;height:100%;object-fit:cover;object-position:50% 25%}
+.why-media .play{position:absolute;inset:0;margin:auto;width:64px;height:64px;border-radius:50%;background:rgba(255,255,255,.9);display:grid;place-items:center}
+.why-media .play svg{width:22px;height:22px;color:var(--brand-d);margin-left:3px}
+.why-cards{display:grid;gap:14px}
+.wcard{display:flex;gap:16px;align-items:flex-start;background:var(--page);border-radius:18px;padding:20px 22px;transition:.25s var(--ease)}
+.wcard:hover{transform:translateY(-3px)}
+.wcard .ic{width:46px;height:46px;border-radius:50%;background:var(--brand);color:#fff;display:grid;place-items:center;flex:none}
+.wcard .ic svg{width:22px;height:22px}
+.wcard h4{font-family:var(--display);font-size:1.05rem;font-weight:600;margin-bottom:5px}
+.wcard p{color:var(--grey);font-size:.92rem;line-height:1.5}
+
+/* ============================================================
+   TAILORED SERVICES (card grid)
+   ============================================================ */
+.grid-svc{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:clamp(30px,4vw,48px)}
+.gcard{background:var(--card);border-radius:var(--r);padding:22px;display:flex;flex-direction:column;transition:transform .28s var(--ease),box-shadow .28s var(--ease)}
+.gcard:hover{transform:translateY(-5px);box-shadow:0 28px 50px -32px rgba(28,24,19,.35)}
+.gcard .top{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:14px}
+.gcard h4{font-family:var(--display);font-size:1.12rem;font-weight:700;letter-spacing:-.01em;line-height:1.2}
+.gcard p{color:var(--grey);font-size:.86rem;line-height:1.45}
+.gcard .arr{width:34px;height:34px;border-radius:50%;background:var(--page);display:grid;place-items:center;flex:none;transition:.25s}
+.gcard .arr svg{width:15px;height:15px}
+.gcard:hover .arr{background:var(--brand);color:#fff}
+.gcard .thumb{margin-top:16px;border-radius:14px;aspect-ratio:16/10;position:relative;overflow:hidden;display:grid;place-items:center;
+  background:linear-gradient(150deg,var(--brand-tint),#ffe2c9)}
+.gcard .thumb svg{width:46px;height:46px;color:var(--brand-d);opacity:.9}
+.gcard .thumb .tphoto{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:1}
+.gcard .thumb .badge{position:absolute;left:12px;bottom:12px;width:34px;height:34px;border-radius:50%;background:var(--brand);color:#fff;display:grid;place-items:center;z-index:2}
+.gcard .thumb .badge svg{width:17px;height:17px;color:#fff;opacity:1}
+.gcard.hi{background:var(--brand);color:#fff}
+.gcard.hi p{color:rgba(255,255,255,.9)}
+.gcard.hi .arr{background:rgba(255,255,255,.2);color:#fff}
+.gcard.hi .thumb{background:linear-gradient(150deg,#ff9a4d,var(--brand-d))}
+.gcard.hi .thumb svg{color:#fff;opacity:.95}
+
+/* ============================================================
+   FREE REVIEW PANEL  (dark gradient + white card)
+   ============================================================ */
+.model{padding:clamp(30px,5vw,60px) var(--gut)}
+.model-card{max-width:var(--maxw);margin:0 auto;background:var(--dark);border-radius:var(--r-lg);padding:14px;display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.model-left{position:relative;border-radius:var(--r);overflow:hidden;padding:clamp(28px,4vw,46px);color:#fff;
+  background:radial-gradient(120% 120% at 0% 0%,var(--brand) 0%,var(--brand-d) 45%,#7a3410 100%)}
+.model-left h2{font-size:clamp(1.7rem,3vw,2.5rem);font-weight:700;letter-spacing:-.02em}
+.model-left h2 .o{color:#fff;text-decoration:underline;text-decoration-color:rgba(255,255,255,.5);text-underline-offset:5px}
+.mock{display:grid;grid-template-columns:1.2fr 1fr;gap:10px;margin-top:30px}
+.mockcard{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.18);border-radius:12px;padding:13px;backdrop-filter:blur(4px)}
+.mockcard .donut{width:46px;height:46px;border-radius:50%;background:conic-gradient(#fff 0 62%,rgba(255,255,255,.3) 62% 100%);position:relative}
+.mockcard .donut::after{content:"";position:absolute;inset:8px;border-radius:50%;background:var(--brand-d)}
+.mbars{display:flex;align-items:flex-end;gap:5px;height:46px}
+.mbars i{flex:1;background:rgba(255,255,255,.7);border-radius:3px 3px 0 0}
+.mline{height:2px;background:rgba(255,255,255,.25);margin:10px 0}
+.mdot{height:8px;border-radius:5px;background:rgba(255,255,255,.4);margin-top:7px}
+.mdot.s{width:60%}
+.model-right{background:var(--card);border-radius:var(--r);padding:clamp(26px,3vw,38px)}
+.model-right .num{width:42px;height:42px;border-radius:11px;background:var(--brand);color:#fff;display:grid;place-items:center;font-family:var(--display);font-weight:700;font-size:1.1rem;margin-bottom:22px}
+.model-right h3{font-family:var(--display);font-size:1.4rem;font-weight:700;letter-spacing:-.01em;margin-bottom:18px}
+.mrlist{list-style:none;display:grid;gap:11px;margin-bottom:22px}
+.mrlist li{display:flex;align-items:center;gap:11px;font-size:.96rem;color:var(--ink-2)}
+.mrlist .ck{width:20px;height:20px;border-radius:6px;background:var(--brand-tint);color:var(--brand-d);display:grid;place-items:center;flex:none}
+.mrlist .ck svg{width:13px;height:13px}
+.model-right .tlink{display:inline-flex;align-items:center;gap:9px;font-weight:600;color:var(--ink);border-bottom:1.5px solid var(--brand);padding-bottom:3px}
+.model-right .tlink .iconbtn{width:32px;height:32px;background:var(--brand);border-color:var(--brand);color:#fff}
+.model-right .tlink .iconbtn svg{width:14px}
+.chart{margin-top:26px;border-top:1px dashed var(--line);padding-top:20px}
+.chart .cb{display:flex;align-items:flex-end;gap:7px;height:96px}
+.chart .cb i{flex:1;background:var(--line);border-radius:5px 5px 0 0;position:relative}
+.chart .cb i.hi{background:var(--brand)}
+.chart .cl{display:flex;justify-content:space-between;margin-top:8px;font-size:.66rem;color:var(--grey-l)}
+.chart .cap{font-size:.72rem;color:var(--grey-l);margin-top:10px}
+
+/* ============================================================
+   AWARDS + REVIEWS
+   ============================================================ */
+.recog{padding:clamp(40px,6vw,80px) 0}
+.awards-row{display:flex;justify-content:center;align-items:center;gap:clamp(24px,5vw,58px);flex-wrap:wrap;margin:clamp(30px,4vw,48px) 0}
+.awards-row img{height:clamp(86px,10vw,116px);width:auto;filter:drop-shadow(0 16px 30px rgba(28,24,19,.16))}
+.rev-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.rev{background:var(--card);border-radius:var(--r);padding:28px;display:flex;flex-direction:column}
+.rating{display:inline-flex;gap:3px;margin-bottom:14px}
+.rating svg{width:16px;height:16px;fill:var(--brand)}
+.rev blockquote{color:var(--ink-2);font-size:.98rem;line-height:1.55;margin-bottom:18px;flex:1}
+.who{display:flex;align-items:center;gap:12px}
+.av{width:44px;height:44px;border-radius:50%;background:var(--brand);color:#fff;display:grid;place-items:center;font-family:var(--display);font-weight:700;flex:none}
+.who b{display:block;font-weight:600;font-size:.92rem}.who span{font-size:.8rem;color:var(--grey-l)}
+.recog .rc{text-align:center;margin-top:36px}
+
+/* ============================================================
+   FOOTER (big dark gradient)
+   ============================================================ */
+footer{margin:clamp(30px,5vw,60px) var(--gut) 0;padding-bottom:18px}
+.foot{max-width:var(--maxw);margin:0 auto;border-radius:var(--r-lg);color:#fff;overflow:hidden;position:relative;
+  background:radial-gradient(120% 120% at 85% 110%,var(--brand-d) 0%,#5e2a0e 30%,var(--dark) 70%);padding:clamp(36px,5vw,64px) clamp(26px,4vw,56px) 30px}
+.foot-top{display:grid;grid-template-columns:1.5fr 1fr 1fr 1.2fr;gap:clamp(24px,4vw,46px);padding-bottom:38px;border-bottom:1px solid var(--line-d)}
+.foot-brand img{height:46px;filter:brightness(0) invert(1);margin-bottom:16px}
+.foot-brand p{color:rgba(255,255,255,.72);max-width:30ch;font-size:.93rem}
+.foot-news{margin-top:20px}
+.foot-news label{font-size:.82rem;color:rgba(255,255,255,.7);display:block;margin-bottom:9px}
+.news-row{display:flex;background:rgba(255,255,255,.1);border:1px solid var(--line-d);border-radius:100px;padding:5px 5px 5px 16px;max-width:340px}
+.news-row input{flex:1;background:none;border:0;color:#fff;font-family:inherit;font-size:.88rem;outline:none}
+.news-row input::placeholder{color:rgba(255,255,255,.5)}
+.news-row button{flex:none;border:0;cursor:pointer;background:var(--brand);color:#fff;font-family:var(--sans);font-weight:600;font-size:.85rem;padding:9px 16px;border-radius:100px;display:inline-flex;align-items:center;gap:6px}
+.foot-col h5{font-size:.72rem;letter-spacing:.13em;text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:15px}
+.foot-col a,.foot-col p{display:block;color:rgba(255,255,255,.82);padding:6px 0;font-size:.92rem}
+.foot-col a:hover{color:#fff}
+.foot-bot{display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap;align-items:center;padding-top:24px;font-size:.8rem;color:rgba(255,255,255,.6)}
+.socials{display:flex;gap:9px}
+.socials a{width:36px;height:36px;border-radius:50%;border:1px solid var(--line-d);display:grid;place-items:center;font-size:.7rem;font-weight:600;transition:.2s}
+.socials a:hover{background:var(--brand);border-color:var(--brand)}
+
+/* ============================================================
+   LENDER BANNER
+   ============================================================ */
+.banks{padding:clamp(10px,2vw,18px) var(--gut)}
+.banks-card{max-width:var(--maxw);margin:0 auto;background:#fff;border-radius:var(--r-lg);padding:clamp(24px,3vw,34px) 0;overflow:hidden}
+.banks .lab{text-align:center;font-size:.74rem;letter-spacing:.16em;text-transform:uppercase;color:var(--grey-l);font-weight:600;margin-bottom:22px;padding:0 var(--gut)}
+.banks .lab b{color:var(--brand-d)}
+.banks-vp{overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
+.banks-track{display:flex;align-items:center;gap:clamp(34px,5vw,62px);width:max-content;animation:bankscroll 40s linear infinite}
+.banks-card:hover .banks-track{animation-play-state:paused}
+.banks-track img{height:32px;width:auto;opacity:.9;transition:.25s var(--ease)}
+.banks-track img:hover{opacity:1;transform:scale(1.05)}
+@keyframes bankscroll{to{transform:translateX(-50%)}}
+@media(prefers-reduced-motion:reduce){.banks-track{animation:none;flex-wrap:wrap;justify-content:center;width:auto}}
+
+/* mobile sticky cta */
+.mcta{position:fixed;left:0;right:0;bottom:0;z-index:60;display:none;gap:10px;padding:11px 14px calc(11px + env(safe-area-inset-bottom));
+  background:rgba(237,234,228,.96);backdrop-filter:blur(10px);border-top:1px solid var(--line);transform:translateY(120%);transition:transform .4s var(--ease)}
+.mcta.show{transform:none}
+.mcta .btn{flex:1;justify-content:center;padding:14px}.mcta .btn-line{flex:none;width:54px;padding:14px 0}
+
+.rv{opacity:0;transform:translateY(24px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
+.rv.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){.rv{opacity:1;transform:none}}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media(max-width:1000px){
+  .menu,.nav-phone b,.nav-phone span{display:none}
+  .burger{display:flex}
+  .nav-phone .ic{display:grid}
+  .hero-inner{grid-template-columns:1fr;gap:24px}
+  .statement .wrap{grid-template-columns:1fr;gap:10px}
+  .svc-intro .wrap{grid-template-columns:1fr;gap:30px}
+  .why-grid{grid-template-columns:1fr}
+  .why-media{aspect-ratio:16/10}
+  .grid-svc{grid-template-columns:repeat(2,1fr)}
+  .model-card{grid-template-columns:1fr}
+  .rev-grid{grid-template-columns:1fr}
+  .foot-top{grid-template-columns:1fr 1fr}
+}
+@media(max-width:600px){
+  body{padding-bottom:74px}
+  .grid-svc{grid-template-columns:1fr}
+  .mock{grid-template-columns:1fr}
+  .foot-top{grid-template-columns:1fr}
+  .mcta{display:flex}
+  .hero-card{min-height:560px}
+}
+
+/* ===================== CALCULATORS ===================== */
+.calc-hero{padding:clamp(40px,6vw,72px) 0 clamp(6px,2vw,16px)}
+.calc-hero h1{font-size:clamp(2.4rem,5vw,3.8rem);font-weight:800;letter-spacing:-.03em;margin:14px 0 0}
+.calc-hero h1 .o{color:var(--brand)}
+.calc-hero p{color:var(--grey);font-size:1.08rem;max-width:62ch;margin-top:16px}
+.calc-wrap{padding:clamp(18px,3vw,28px) 0 clamp(40px,6vw,80px)}
+.calc-tabs{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:22px}
+.ctab{font-family:var(--sans);font-weight:600;font-size:.92rem;color:var(--ink-2);background:#fff;border:1px solid var(--line);border-radius:100px;padding:11px 20px;cursor:pointer;transition:.2s var(--ease)}
+.ctab:hover{border-color:var(--brand)}
+.ctab.on{background:var(--brand);color:#fff;border-color:var(--brand)}
+.calc-panel{display:none}
+.calc-panel.on{display:block;animation:cfade .35s var(--ease)}
+@keyframes cfade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.calc-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.calc-inputs{background:#fff;border-radius:var(--r-lg);padding:clamp(24px,3vw,38px)}
+.calc-inputs h2{font-family:var(--display);font-size:1.35rem;font-weight:700;letter-spacing:-.01em;margin-bottom:6px}
+.calc-inputs .lead{color:var(--grey);font-size:.94rem;margin-bottom:24px}
+.cf{display:block;margin-bottom:20px}
+.cf-top{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:8px}
+.cf-top span:first-child{font-weight:600;font-size:.92rem;color:var(--ink-2)}
+.cf-top output{font-family:var(--display);font-weight:700;color:var(--brand-d);font-size:.98rem}
+.cf-in{display:flex;align-items:center;background:var(--page);border:1.5px solid transparent;border-radius:12px;padding:0 14px;transition:.2s}
+.cf-in:focus-within{background:#fff;border-color:var(--brand);box-shadow:0 0 0 4px rgba(244,121,32,.13)}
+.cf-in .pre{color:var(--grey-l);font-weight:600}
+.cf-in input,.cf-in select{flex:1;border:0;background:none;outline:none;font-family:var(--sans);font-size:1.05rem;font-weight:600;color:var(--ink);padding:13px 6px;width:100%}
+.cf-in .suf{color:var(--grey-l);font-weight:600;font-size:.88rem;white-space:nowrap}
+input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:5px;border-radius:5px;background:var(--bone-2);margin-top:14px;cursor:pointer}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:22px;height:22px;border-radius:50%;background:var(--brand);border:3px solid #fff;box-shadow:0 2px 8px rgba(244,121,32,.5)}
+input[type=range]::-moz-range-thumb{width:18px;height:18px;border-radius:50%;background:var(--brand);border:3px solid #fff;cursor:pointer}
+.ccheck{display:flex;align-items:center;gap:10px;font-size:.92rem;color:var(--ink-2);cursor:pointer;margin-top:4px}
+.ccheck input{width:18px;height:18px;accent-color:var(--brand)}
+.calc-result{border-radius:var(--r-lg);padding:clamp(26px,3vw,40px);color:#fff;background:radial-gradient(120% 120% at 0% 0%,var(--brand) 0%,var(--brand-d) 52%,#7a3410 100%);display:flex;flex-direction:column}
+.calc-result .rlab{font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.82);font-weight:600}
+.calc-result .rbig{font-family:var(--display);font-weight:800;letter-spacing:-.02em;font-size:clamp(2.5rem,6vw,3.5rem);line-height:1;margin:10px 0 4px}
+.calc-result .rsub{color:rgba(255,255,255,.88);font-size:.96rem}
+.rrows{margin-top:24px;border-top:1px solid rgba(255,255,255,.22);padding-top:18px;display:grid;gap:13px}
+.rrow{display:flex;justify-content:space-between;align-items:baseline;gap:14px}
+.rrow span{color:rgba(255,255,255,.82);font-size:.94rem}
+.rrow b{font-family:var(--display);font-weight:700;font-size:1.12rem}
+.calc-result .rcta{margin-top:auto;padding-top:26px}
+.calc-result .rcta a{display:inline-flex;align-items:center;gap:8px;background:#fff;color:var(--ink);font-family:var(--sans);font-weight:600;font-size:.92rem;padding:12px 20px;border-radius:100px;transition:.25s var(--ease)}
+.calc-result .rcta a:hover{transform:translateY(-2px)}
+.calc-result .rcta svg{width:15px;height:15px}
+.calc-note{color:var(--grey-l);font-size:.82rem;line-height:1.55;margin-top:22px;max-width:90ch}
+@media(max-width:820px){.calc-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<header>
+  <nav class="nav">
+    <a href="index.html" class="brand" aria-label="Orange Mortgage &amp; Finance Brokers"><img src="https://of-1835d.kxcdn.com/wp-content/uploads/2017/12/Orange-Mortgage-and-Finance-Brokers-Logo-transparent-sm.png" alt="Orange Mortgage & Finance Brokers logo"></a>
+    <ul class="menu">
+      <li><a href="index.html">Home</a></li>
+      <li>
+        <a>Home Loans <svg class="ca" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="m6 9 6 6 6-6"/></svg></a>
+        <div class="dd">
+          <a href="https://www.orangefinance.net.au/first-home-buyers-finance/">First Home Buyers</a>
+          <a href="https://www.orangefinance.net.au/refinance-home-loan/">Refinancing</a>
+          <a href="https://www.orangefinance.net.au/construction-loan/">Construction Loans</a>
+          <a href="https://www.orangefinance.net.au/investment-loans/">Investment Loans</a>
+          <a href="https://www.orangefinance.net.au/smsf-mortgage/">SMSF Mortgage</a>
+          <a href="https://www.orangefinance.net.au/parental-guarantee/">Parental Guarantees</a>
+        </div>
+      </li>
+      <li><a href="index.html#why">Why Us</a></li>
+      <li><a href="index.html#process">How It Works</a></li>
+      <li class="on"><a href="calculators.html">Calculators</a></li>
+      <li><a href="index.html#reviews">Reviews</a></li>
+    </ul>
+    <div class="nav-right">
+      <a href="tel:+61425212636" class="nav-phone">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg></span>
+        <span class="tx"><b>0425 212 636</b><span>Call or text Laszlo</span></span>
+      </a>
+      <a href="index.html#contact" class="btn btn-brand">Book a free chat</a>
+      <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+</header>
+
+<div class="drawer" id="drawer">
+  <div class="dh">
+    <img src="https://of-1835d.kxcdn.com/wp-content/uploads/2017/12/Orange-Mortgage-and-Finance-Brokers-Logo-transparent-sm.png" alt="Orange Mortgage & Finance Brokers logo">
+    <button class="drawer-x" id="drawerX" aria-label="Close">×</button>
+  </div>
+  <nav>
+    <a href="index.html#services">Home Loans</a>
+    <a href="index.html#why">Why Us</a>
+    <a href="index.html#process">How It Works</a>
+    <a href="calculators.html">Calculators</a>
+    <a href="index.html#reviews">Reviews</a>
+    <a href="index.html#contact">Contact</a>
+  </nav>
+  <div class="df">
+    <a href="index.html#contact" class="btn btn-brand">Book a free chat</a>
+    <a href="tel:+61425212636" class="btn btn-line" style="color:#fff;border-color:rgba(255,255,255,.35)">Call 0425 212 636</a>
+  </div>
+</div>
+
+
+
+<section class="calc-hero">
+  <div class="wrap">
+    <span class="tag-lab"><span class="sq"></span> Calculators</span>
+    <h1>Crunch the numbers <span class="o">before you commit</span></h1>
+    <p>Quick, no-sign-up estimates for repayments, extra repayments, offset savings, WA stamp duty and income tax. When you want the exact picture for your situation, we are one call away.</p>
+  </div>
+</section>
+<section class="calc-wrap">
+  <div class="wrap">
+    <div class="calc-tabs" role="tablist">
+      <button class="ctab on" data-tab="repay">Repayments</button>
+      <button class="ctab" data-tab="extra">Extra repayments</button>
+      <button class="ctab" data-tab="offset">Offset</button>
+      <button class="ctab" data-tab="stamp">Stamp duty (WA)</button>
+      <button class="ctab" data-tab="tax">Income tax</button>
+    </div>
+<div class="calc-panel on" id="tab-repay"><div class="calc-grid"><div class="calc-inputs"><h2>Mortgage repayments</h2><p class="lead">Estimate your repayment and the total interest over the life of the loan.</p><label class="cf"><span class="cf-top"><span>Loan amount</span><output id="r_amount_o"></output></span><div class="cf-in"><span class="pre">$</span><input type="number" id="r_amount" value="650000" min="50000" max="5000000" step="5000"></div><input type="range" id="r_amount_s" min="100000" max="2000000" step="5000" value="650000"></label><label class="cf"><span class="cf-top"><span>Interest rate</span></span><div class="cf-in"><input type="number" id="r_rate" value="6.20" min="0.5" max="20" step="0.05"><span class="suf">% p.a.</span></div><input type="range" id="r_rate_s" min="1" max="12" step="0.05" value="6.20"></label><label class="cf"><span class="cf-top"><span>Loan term</span></span><div class="cf-in"><input type="number" id="r_term" value="30" min="1" max="40" step="1"><span class="suf">years</span></div><input type="range" id="r_term_s" min="1" max="40" step="1" value="30"></label><label class="cf"><span class="cf-top"><span>Repayment frequency</span></span><div class="cf-in"><select id="r_freq"><option value="12">Monthly</option><option value="26">Fortnightly</option><option value="52">Weekly</option></select></div></label></div><div class="calc-result"><span class="rlab">Your repayment</span><div class="rbig" id="r_repay">$0</div><div class="rsub"><span id="r_freqlbl">per month</span></div><div class="rrows"><div class="rrow"><span>Total interest</span><b id="r_tint">$0</b></div><div class="rrow"><span>Total repaid</span><b id="r_trep">$0</b></div></div><div class="rcta"><a href="index.html#contact">Book a free chat <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M7 7h10v10"/></svg></a></div></div></div></div><div class="calc-panel" id="tab-extra"><div class="calc-grid"><div class="calc-inputs"><h2>Extra repayments</h2><p class="lead">See how paying a little more each month cuts your interest and clears the loan sooner.</p><label class="cf"><span class="cf-top"><span>Loan amount</span><output id="e_amount_o"></output></span><div class="cf-in"><span class="pre">$</span><input type="number" id="e_amount" value="650000" min="50000" max="5000000" step="5000"></div><input type="range" id="e_amount_s" min="100000" max="2000000" step="5000" value="650000"></label><label class="cf"><span class="cf-top"><span>Interest rate</span></span><div class="cf-in"><input type="number" id="e_rate" value="6.20" min="0.5" max="20" step="0.05"><span class="suf">% p.a.</span></div><input type="range" id="e_rate_s" min="1" max="12" step="0.05" value="6.20"></label><label class="cf"><span class="cf-top"><span>Loan term</span></span><div class="cf-in"><input type="number" id="e_term" value="30" min="1" max="40" step="1"><span class="suf">years</span></div><input type="range" id="e_term_s" min="1" max="40" step="1" value="30"></label><label class="cf"><span class="cf-top"><span>Extra per month</span><output id="e_extra_o"></output></span><div class="cf-in"><span class="pre">$</span><input type="number" id="e_extra" value="300" min="0" max="10000" step="50"></div><input type="range" id="e_extra_s" min="0" max="2000" step="50" value="300"></label></div><div class="calc-result"><span class="rlab">Interest saved</span><div class="rbig" id="e_save">$0</div><div class="rsub">Time saved: <span id="e_time">0 months</span></div><div class="rrows"><div class="rrow"><span>Interest without extra</span><b id="e_baseint">$0</b></div><div class="rrow"><span>Interest with extra</span><b id="e_newint">$0</b></div></div><div class="rcta"><a href="index.html#contact">Book a free chat <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M7 7h10v10"/></svg></a></div></div></div></div><div class="calc-panel" id="tab-offset"><div class="calc-grid"><div class="calc-inputs"><h2>Offset savings</h2><p class="lead">An offset account uses your savings to reduce the interest charged on your loan.</p><label class="cf"><span class="cf-top"><span>Loan amount</span><output id="o_amount_o"></output></span><div class="cf-in"><span class="pre">$</span><input type="number" id="o_amount" value="650000" min="50000" max="5000000" step="5000"></div><input type="range" id="o_amount_s" min="100000" max="2000000" step="5000" value="650000"></label><label class="cf"><span class="cf-top"><span>Interest rate</span></span><div class="cf-in"><input type="number" id="o_rate" value="6.20" min="0.5" max="20" step="0.05"><span class="suf">% p.a.</span></div><input type="range" id="o_rate_s" min="1" max="12" step="0.05" value="6.20"></label><label class="cf"><span class="cf-top"><span>Loan term</span></span><div class="cf-in"><input type="number" id="o_term" value="30" min="1" max="40" step="1"><span class="suf">years</span></div><input type="range" id="o_term_s" min="1" max="40" step="1" value="30"></label><label class="cf"><span class="cf-top"><span>Offset balance</span><output id="o_offset_o"></output></span><div class="cf-in"><span class="pre">$</span><input type="number" id="o_offset" value="30000" min="0" max="2000000" step="1000"></div><input type="range" id="o_offset_s" min="0" max="300000" step="5000" value="30000"></label></div><div class="calc-result"><span class="rlab">Interest saved</span><div class="rbig" id="o_save">$0</div><div class="rsub">Time saved: <span id="o_time">0 months</span></div><div class="rrows"><div class="rrow"><span>Interest without offset</span><b id="o_baseint">$0</b></div><div class="rrow"><span>Interest with offset</span><b id="o_newint">$0</b></div></div><div class="rcta"><a href="index.html#contact">Book a free chat <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M7 7h10v10"/></svg></a></div></div></div></div><div class="calc-panel" id="tab-stamp"><div class="calc-grid"><div class="calc-inputs"><h2>Stamp duty (WA)</h2><p class="lead">Estimate Western Australian transfer duty on your purchase.</p><label class="cf"><span class="cf-top"><span>Property value</span><output id="s_value_o"></output></span><div class="cf-in"><span class="pre">$</span><input type="number" id="s_value" value="650000" min="100000" max="10000000" step="5000"></div><input type="range" id="s_value_s" min="200000" max="2000000" step="10000" value="650000"></label><label class="cf"><span class="cf-top"><span>Buyer type</span></span><div class="cf-in"><select id="s_type"><option value="first">First home buyer</option><option value="owner">Owner-occupier</option><option value="investor">Investor</option></select></div></label><label class="ccheck"><input type="checkbox" id="s_foreign"> Foreign buyer (adds 7% surcharge)</label></div><div class="calc-result"><span class="rlab">Estimated stamp duty</span><div class="rbig" id="s_duty">$0</div><div class="rsub"><span id="s_note">General transfer duty rate.</span></div><div class="rrows"><div class="rrow"><span>Transfer duty</span><b id="s_base">$0</b></div><div class="rrow"><span>Foreign buyer surcharge</span><b id="s_for">$0</b></div></div><div class="rcta"><a href="index.html#contact">Book a free chat <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M7 7h10v10"/></svg></a></div></div></div></div><div class="calc-panel" id="tab-tax"><div class="calc-grid"><div class="calc-inputs"><h2>Income tax</h2><p class="lead">Estimate your Australian income tax and take-home pay using 2025-26 resident rates.</p><label class="cf"><span class="cf-top"><span>Taxable income (per year)</span><output id="t_income_o"></output></span><div class="cf-in"><span class="pre">$</span><input type="number" id="t_income" value="95000" min="0" max="2000000" step="1000"></div><input type="range" id="t_income_s" min="30000" max="300000" step="1000" value="95000"></label></div><div class="calc-result"><span class="rlab">Total tax + Medicare</span><div class="rbig" id="t_tax">$0</div><div class="rsub">Take-home: <span id="t_net">$0</span></div><div class="rrows"><div class="rrow"><span>Income tax</span><b id="t_inctax">$0</b></div><div class="rrow"><span>Medicare levy</span><b id="t_medicare">$0</b></div><div class="rrow"><span>Effective rate</span><b id="t_eff">$0</b></div></div><div class="rcta"><a href="index.html#contact">Book a free chat <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M7 7h10v10"/></svg></a></div></div></div></div><p class="calc-note"><strong>Estimates only.</strong> These calculators are a guide, not financial advice or a quote, and assume a constant interest rate. Stamp duty uses current WA general transfer duty rates; first home buyer thresholds reflect the WA Government's announced changes (no duty up to $600,000, concession to $800,000), with legislation expected to commence mid-2026, so confirm exact figures with RevenueWA. Income tax uses 2025-26 Australian resident rates including the 2% Medicare levy and Low Income Tax Offset, and excludes HELP/HECS, the Medicare levy surcharge and other offsets. For a tailored assessment, book a free chat with Laszlo.</p>
+  </div>
+</section>
+<script>
+(function(){
+  var g=function(id){return document.getElementById(id);};
+  var AUD=new Intl.NumberFormat('en-AU',{style:'currency',currency:'AUD',maximumFractionDigits:0});
+  function cur(n){return AUD.format(Math.round(n||0));}
+  function dur(m){if(m<=0)return '0 months';var y=Math.floor(m/12),mm=m%12,s='';if(y)s+=y+(y==1?' year':' years');if(mm)s+=(s?' ':'')+mm+(mm==1?' month':' months');return s||'0 months';}
+  var SYNC=['r_amount','r_rate','r_term','e_amount','e_rate','e_term','e_extra','o_amount','o_rate','o_term','o_offset','s_value','t_income'];
+  var OUTC=['r_amount','e_amount','e_extra','o_amount','o_offset','s_value','t_income'];
+
+  function amort(P,rate,yrs,extra,offset){
+    var r=rate/100/12; var n=yrs*12;
+    var base=(r>0)?P*r/(1-Math.pow(1+r,-n)):P/n;
+    var pay=base+(extra||0); var bal=P,interest=0,m=0,cap=n+1200;
+    while(bal>0.005 && m<cap){var eff=Math.max(bal-(offset||0),0);var i=eff*r;interest+=i;bal=bal+i-pay;m++;if(pay<=i){m=cap;break;}}
+    return {months:m,interest:interest};
+  }
+  function genDuty(v){
+    if(v<=0)return 0;
+    if(v<=120000)return v*0.019;
+    if(v<=150000)return 2850+(v-120000)*0.0285;
+    if(v<=360000)return 3705+(v-150000)*0.038;
+    if(v<=725000)return 11700+(v-360000)*0.0475;
+    return 29037.5+(v-725000)*0.0515;
+  }
+  function incomeTax(ti){
+    var b=[[18200,0],[45000,0.16],[135000,0.30],[190000,0.37],[1e12,0.45]];var t=0,lo=0;
+    for(var k=0;k<b.length;k++){var cap=b[k][0],rate=b[k][1];if(ti>lo){t+=(Math.min(ti,cap)-lo)*rate;lo=cap;}else break;}
+    return t;
+  }
+  function lito(ti){if(ti<=37500)return 700;if(ti<=45000)return 700-(ti-37500)*0.05;if(ti<=66667)return Math.max(325-(ti-45000)*0.015,0);return 0;}
+  function medicare(ti){var l=27222,h=34027;if(ti<=l)return 0;if(ti<h)return (ti-l)*0.10;return ti*0.02;}
+
+  function computeRepay(){
+    var P=+g('r_amount').value,rate=+g('r_rate').value,yrs=+g('r_term').value,ppy=+g('r_freq').value;
+    var r=rate/100/ppy,n=yrs*ppy;var pay=(r>0)?P*r/(1-Math.pow(1+r,-n)):P/n;var total=pay*n;
+    g('r_repay').textContent=cur(pay);
+    g('r_freqlbl').textContent={12:'per month',26:'per fortnight',52:'per week'}[ppy];
+    g('r_tint').textContent=cur(total-P);g('r_trep').textContent=cur(total);
+  }
+  function computeExtra(){
+    var P=+g('e_amount').value,rate=+g('e_rate').value,yrs=+g('e_term').value,ex=+g('e_extra').value;
+    var base=amort(P,rate,yrs,0,0),w=amort(P,rate,yrs,ex,0);
+    g('e_save').textContent=cur(Math.max(base.interest-w.interest,0));
+    g('e_time').textContent=dur(base.months-w.months);
+    g('e_baseint').textContent=cur(base.interest);g('e_newint').textContent=cur(w.interest);
+  }
+  function computeOffset(){
+    var P=+g('o_amount').value,rate=+g('o_rate').value,yrs=+g('o_term').value,off=+g('o_offset').value;
+    var base=amort(P,rate,yrs,0,0),w=amort(P,rate,yrs,0,off);
+    g('o_save').textContent=cur(Math.max(base.interest-w.interest,0));
+    g('o_time').textContent=dur(base.months-w.months);
+    g('o_baseint').textContent=cur(base.interest);g('o_newint').textContent=cur(w.interest);
+  }
+  function computeStamp(){
+    var v=+g('s_value').value,type=g('s_type').value,foreign=g('s_foreign').checked;
+    var duty=genDuty(v),note='General transfer duty rate.';
+    if(type==='first'){
+      if(v<=600000){duty=0;note='First home buyer: no transfer duty up to $600,000.';}
+      else if(v<=800000){note='First home buyer concession applies from $600,000 to $800,000. The figure shown is the general rate; your concession will reduce it. Ask us for the exact amount.';}
+      else{note='Above the $800,000 first home cap, the general rate applies.';}
+    }
+    var fd=foreign?v*0.07:0;
+    g('s_duty').textContent=cur(duty+fd);
+    g('s_base').textContent=cur(duty);g('s_for').textContent=cur(fd);
+    g('s_note').textContent=note+(foreign?' Includes 7% foreign buyer surcharge.':'');
+  }
+  function computeTax(){
+    var ti=+g('t_income').value;var tax=Math.max(incomeTax(ti)-lito(ti),0);var med=medicare(ti);
+    var tot=tax+med;var net=ti-tot;var eff=ti>0?tot/ti*100:0;
+    g('t_tax').textContent=cur(tot);g('t_net').textContent=cur(net);
+    g('t_inctax').textContent=cur(tax);g('t_medicare').textContent=cur(med);g('t_eff').textContent=eff.toFixed(1)+'%';
+  }
+  function update(e){
+    SYNC.forEach(function(id){var n=g(id),r=g(id+'_s');if(!n||!r)return;if(e&&e.target===r){n.value=r.value;}else if(e&&e.target===n){r.value=n.value;}});
+    OUTC.forEach(function(id){var n=g(id),o=g(id+'_o');if(n&&o)o.textContent=cur(+n.value||0);});
+    computeRepay();computeExtra();computeOffset();computeStamp();computeTax();
+  }
+  var wrap=document.querySelector('.calc-wrap');
+  wrap.addEventListener('input',update);
+  wrap.addEventListener('change',update);
+  document.querySelectorAll('.ctab').forEach(function(t){t.onclick=function(){
+    document.querySelectorAll('.ctab').forEach(function(x){x.classList.remove('on');});
+    document.querySelectorAll('.calc-panel').forEach(function(x){x.classList.remove('on');});
+    t.classList.add('on');g('tab-'+t.getAttribute('data-tab')).classList.add('on');
+  };});
+  update();
+})();
+</script>
+
+
+<footer>
+  <div class="foot">
+    <div class="foot-top">
+      <div class="foot-brand">
+        <img src="https://of-1835d.kxcdn.com/wp-content/uploads/2017/12/Orange-Mortgage-and-Finance-Brokers-Logo-transparent-sm.png" alt="Orange Mortgage & Finance Brokers logo">
+        <p>Experienced, tailored and thoughtful mortgage broking in North Perth. Above all, we work for you, not the bank.</p>
+        <div class="foot-news">
+          <label>Get RBA rate updates &amp; tips</label>
+          <form class="news-row" action="https://formspree.io/f/your-form-id" method="POST">
+            <input type="email" name="email" placeholder="Your email address" required>
+            <button type="submit">Sign up <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px"><path d="M7 17 17 7M7 7h10v10"/></svg></button>
+          </form>
+        </div>
+      </div>
+      <div class="foot-col"><h5>Home Loans</h5>
+        <a href="https://www.orangefinance.net.au/first-home-buyers-finance/">First Home Buyers</a>
+        <a href="https://www.orangefinance.net.au/refinance-home-loan/">Refinancing</a>
+        <a href="https://www.orangefinance.net.au/construction-loan/">Construction</a>
+        <a href="https://www.orangefinance.net.au/investment-loans/">Investment</a>
+        <a href="https://www.orangefinance.net.au/smsf-mortgage/">SMSF Mortgage</a>
+      </div>
+      <div class="foot-col"><h5>Resources</h5>
+        <a href="https://www.orangefinance.net.au/how-it-works/">How to get a loan</a>
+        <a href="https://www.orangefinance.net.au/calculators/">Calculators</a>
+        <a href="https://www.orangefinance.net.au/interesting-articles-about-property-and-finance/">Articles</a>
+        <a href="https://www.orangefinance.net.au/us/">About Laszlo</a>
+        <a href="https://www.orangefinance.net.au/testimonials/">Testimonials</a>
+      </div>
+      <div class="foot-col"><h5>North Perth Office</h5>
+        <p>Unit 10/46 Angove Street<br>North Perth, WA 6006</p>
+        <a href="tel:+61425212636">0425 212 636</a>
+        <a href="https://www.orangefinance.net.au/contact/">Contact us</a>
+      </div>
+    </div>
+    <div class="foot-bot">
+      <span>© <span id="yr"></span> Orange Mortgage &amp; Finance Brokers · Australian Credit Licence 390618 · ABN 55 143 493 127</span>
+      <div class="socials"><a href="https://www.google.com/maps?cid=7556790498611785068" target="_blank" rel="noopener" aria-label="Google">G</a><a href="https://www.ratemyagent.com.au/mortgage-broker/laszlo-szollosi-gv662/finance/overview" target="_blank" rel="noopener" aria-label="RateMyAgent">★</a></div>
+    </div>
+  </div>
+</footer>
+
+<div class="mcta" id="mcta">
+  <a href="index.html#contact" class="btn btn-brand">Book a free chat</a>
+  <a href="tel:+61425212636" class="btn btn-line" aria-label="Call"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg></a>
+</div>
+
+<script>
+document.getElementById('yr').textContent=new Date().getFullYear();
+const mcta=document.getElementById('mcta');
+addEventListener('scroll',()=>{mcta.classList.toggle('show',scrollY>700);},{passive:true});
+
+const drawer=document.getElementById('drawer');
+document.getElementById('burger').onclick=()=>{drawer.classList.add('open');document.body.style.overflow='hidden';};
+const close=()=>{drawer.classList.remove('open');document.body.style.overflow='';};
+document.getElementById('drawerX').onclick=close;
+drawer.querySelectorAll('a').forEach(a=>a.addEventListener('click',close));
+
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}}),{threshold:.12,rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
