@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Orange Mortgage &amp; Finance Brokers · Perth Mortgage Broker</title>
+<meta name="description" content="Award-winning Perth mortgage brokers. RateMyAgent WA Broker of the Year 2024 &amp; 2025. We compare 30+ lenders, do the heavy lifting and structure your loan to keep more money in your pocket, at no cost to you. Call 0425 212 636." />
+<meta name="theme-color" content="#15120e" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --brand:#F47920;
+  --brand-d:#d8631a;
+  --brand-l:#ff9a4d;
+  --brand-tint:#fff1e4;
+  --dark:#1c1a16;          /* charcoal (brand-true dark, replaces reference green) */
+  --dark-2:#272320;
+  --ink:#1b1814;
+  --ink-2:#3c372f;
+  --grey:#6f685d;
+  --grey-l:#9a9286;
+  --page:#edeae4;          /* light neutral page bg (matches references) */
+  --card:#ffffff;
+  --line:#e2dccf;
+  --line-d:rgba(255,255,255,.14);
+
+  --display:"Plus Jakarta Sans","Inter",sans-serif;
+  --sans:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+
+  --maxw:1240px;
+  --gut:clamp(16px,3vw,28px);
+  --r:22px;
+  --r-lg:30px;
+  --ease:cubic-bezier(.22,.61,.36,1);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{font-family:var(--sans);background:var(--page);color:var(--ink);font-size:16.5px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img,svg{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+::selection{background:var(--brand);color:#fff}
+h1,h2,h3,h4{font-family:var(--display);font-weight:700;line-height:1.08;letter-spacing:-.02em}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 var(--gut)}
+.tag-lab{display:inline-flex;align-items:center;gap:8px;font-size:.78rem;font-weight:600;color:var(--brand-d);letter-spacing:.01em}
+.tag-lab .sq{width:13px;height:13px;border-radius:3px;background:var(--brand);display:inline-block}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;gap:.55em;font-family:var(--sans);font-weight:600;font-size:.94rem;
+  padding:14px 24px;border-radius:100px;border:1.5px solid transparent;cursor:pointer;transition:transform .28s var(--ease),background .25s,color .25s,border-color .25s,box-shadow .3s}
+.btn svg{width:16px;height:16px;transition:transform .28s var(--ease)}
+.btn:hover svg{transform:translate(3px,-3px)}
+.btn-brand{background:var(--brand);color:#fff;box-shadow:0 14px 30px -14px rgba(244,121,32,.6)}
+.btn-brand:hover{background:var(--brand-d);transform:translateY(-2px)}
+.btn-dark{background:var(--dark);color:#fff}.btn-dark:hover{background:#000;transform:translateY(-2px)}
+.btn-line{background:transparent;border-color:var(--line);color:var(--ink)}
+.btn-line:hover{border-color:var(--ink);transform:translateY(-2px)}
+.btn-wht{background:#fff;color:var(--ink)}.btn-wht:hover{transform:translateY(-2px);box-shadow:0 14px 30px -16px rgba(0,0,0,.4)}
+.iconbtn{width:42px;height:42px;border-radius:50%;border:1.5px solid var(--line);display:grid;place-items:center;flex:none;transition:.28s var(--ease)}
+.iconbtn svg{width:16px;height:16px;transition:transform .28s var(--ease)}
+
+/* ============================================================
+   HEADER
+   ============================================================ */
+header{position:sticky;top:0;z-index:80;padding-top:14px}
+.nav{max-width:var(--maxw);margin:0 auto;display:flex;align-items:center;gap:18px;
+  background:rgba(255,255,255,.82);backdrop-filter:blur(16px);border:1px solid var(--line);
+  border-radius:100px;padding:10px 12px 10px 22px;box-shadow:0 10px 30px -22px rgba(28,24,19,.5)}
+.brand{display:flex;align-items:center;flex:none}
+.brand img{height:40px;width:auto}
+.menu{display:flex;align-items:center;gap:4px;margin:0 auto;background:var(--page);border-radius:100px;padding:5px}
+.menu>li{list-style:none;position:relative}
+.menu>li>a{display:inline-flex;align-items:center;gap:6px;color:var(--ink-2);font-size:.9rem;font-weight:600;padding:9px 15px;border-radius:100px;cursor:pointer;transition:.2s}
+.menu>li>a:hover,.menu>li.on>a{background:#fff;color:var(--ink);box-shadow:0 4px 12px -8px rgba(0,0,0,.3)}
+.menu .ca{width:9px;height:9px;opacity:.6}
+.dd{position:absolute;top:100%;left:0;margin-top:12px;min-width:240px;background:#fff;border:1px solid var(--line);border-radius:18px;padding:9px;box-shadow:0 40px 80px -36px rgba(28,24,19,.4);opacity:0;visibility:hidden;transform:translateY(8px);transition:.26s var(--ease)}
+.menu>li:hover .dd{opacity:1;visibility:visible;transform:none}
+.dd a{display:block;padding:10px 13px;border-radius:11px;color:var(--grey);font-size:.9rem;font-weight:500;transition:.18s}
+.dd a:hover{background:var(--page);color:var(--ink)}
+.nav-right{display:flex;align-items:center;gap:12px;flex:none}
+.nav-phone{display:flex;align-items:center;gap:10px}
+.nav-phone .ic{width:42px;height:42px;border-radius:50%;background:var(--brand);color:#fff;display:grid;place-items:center;flex:none}
+.nav-phone .ic svg{width:18px;height:18px}
+.nav-phone b{display:block;font-size:.9rem;font-weight:700;color:var(--ink);line-height:1.1}
+.nav-phone span{font-size:.72rem;color:var(--grey-l)}
+.burger{display:none;width:44px;height:44px;border:1.5px solid var(--line);border-radius:50%;background:#fff;cursor:pointer;flex-direction:column;gap:4px;align-items:center;justify-content:center}
+.burger span{width:17px;height:2px;background:var(--ink);border-radius:2px}
+
+.drawer{position:fixed;inset:0;z-index:95;background:var(--dark);color:#fff;transform:translateX(100%);transition:transform .45s var(--ease);display:flex;flex-direction:column;padding:20px var(--gut)}
+.drawer.open{transform:translateX(0)}
+.drawer .dh{display:flex;justify-content:space-between;align-items:center;margin-bottom:24px}
+.drawer .dh img{height:42px;filter:brightness(0) invert(1)}
+.drawer-x{width:44px;height:44px;border:1px solid var(--line-d);border-radius:50%;background:none;color:#fff;font-size:1.4rem;cursor:pointer}
+.drawer nav{display:flex;flex-direction:column;border-top:1px solid var(--line-d)}
+.drawer nav a{font-family:var(--display);font-size:1.5rem;font-weight:600;padding:16px 0;border-bottom:1px solid var(--line-d)}
+.drawer .df{margin-top:auto;padding-top:22px;display:grid;gap:11px}
+.drawer .df .btn{justify-content:center}
+
+/* ============================================================
+   HERO
+   ============================================================ */
+.hero{padding:14px var(--gut) 0}
+.hero-card{position:relative;max-width:var(--maxw);margin:0 auto;border-radius:var(--r-lg);overflow:hidden;min-height:min(78vh,640px);display:flex;align-items:flex-end;color:#fff;isolation:isolate}
+.hero-card .bg{position:absolute;inset:0;z-index:-2}
+.hero-card .bg img{width:100%;height:100%;object-fit:cover}
+.hero-card::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(20,18,14,.18) 0%,rgba(20,18,14,.05) 35%,rgba(20,18,14,.78) 100%),linear-gradient(90deg,rgba(20,18,14,.55),rgba(20,18,14,0) 60%)}
+.hero-inner{width:100%;padding:clamp(26px,4vw,52px);display:grid;grid-template-columns:1.25fr .75fr;gap:30px;align-items:end}
+.hero-loc{display:inline-flex;align-items:center;gap:8px;font-size:.84rem;color:rgba(255,255,255,.88);margin-bottom:16px}
+.hero-loc svg{width:15px;height:15px}
+.hero h1{font-size:clamp(2.2rem,4.6vw,4rem);font-weight:800;letter-spacing:-.03em;max-width:16ch}
+.hero h1 .o{color:var(--brand-l)}
+.hero-cta{margin-top:26px;display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+/* floating stat cards */
+.hero-stats{display:grid;gap:12px}
+.hstat{background:rgba(28,26,22,.42);backdrop-filter:blur(14px);border:1px solid rgba(255,255,255,.18);border-radius:18px;padding:16px 18px;display:flex;align-items:center;justify-content:space-between;gap:14px}
+.hstat .tx b{font-family:var(--display);font-weight:700;font-size:1.4rem;display:block;letter-spacing:-.01em}
+.hstat .tx span{font-size:.8rem;color:rgba(255,255,255,.82);display:block;margin-top:2px;max-width:24ch}
+.hstat .gr{width:52px;height:52px;border-radius:50%;background:rgba(244,121,32,.22);border:1px solid rgba(255,255,255,.25);display:grid;place-items:center;flex:none;color:#fff}
+.hstat .gr svg{width:24px;height:24px}
+
+/* ============================================================
+   ABOUT STATEMENT
+   ============================================================ */
+.statement{padding:clamp(56px,8vw,104px) 0 clamp(40px,5vw,64px)}
+.statement .wrap{display:grid;grid-template-columns:140px 1fr;gap:20px}
+.statement .big{font-family:var(--display);font-weight:700;font-size:clamp(1.5rem,3.2vw,2.5rem);line-height:1.28;letter-spacing:-.02em;color:var(--ink)}
+.statement .big .o{color:var(--brand)}
+.statement .big .mut{color:var(--grey-l)}
+
+/* services list + image */
+.svc-intro{padding:clamp(20px,3vw,30px) 0 clamp(56px,8vw,100px)}
+.svc-intro .wrap{display:grid;grid-template-columns:.85fr 1.15fr;gap:clamp(30px,5vw,64px);align-items:center}
+.svc-photo{border-radius:var(--r);overflow:hidden;aspect-ratio:4/3.4;background:var(--line)}
+.svc-photo img{width:100%;height:100%;object-fit:cover}
+.svc-list .hd{margin-bottom:18px}
+.svc-row{display:grid;grid-template-columns:42px 1fr 42px;gap:18px;align-items:center;padding:22px 4px;border-top:1px solid var(--line)}
+.svc-row:last-child{border-bottom:1px solid var(--line)}
+.svc-row .n{font-size:.86rem;color:var(--grey-l);font-weight:600}
+.svc-row h3{font-family:var(--display);font-size:clamp(1.15rem,2vw,1.4rem);font-weight:600;letter-spacing:-.01em}
+.svc-row .iconbtn{justify-self:end}
+.svc-row:hover .iconbtn{background:var(--brand);border-color:var(--brand)}
+.svc-row:hover .iconbtn svg{stroke:#fff;transform:translate(2px,-2px)}
+
+/* ============================================================
+   SECTION HEADS
+   ============================================================ */
+.sh{max-width:680px}
+.sh.center{margin:0 auto;text-align:center}
+.sh h2{font-size:clamp(1.9rem,3.8vw,2.9rem);font-weight:700;letter-spacing:-.025em;margin-top:14px}
+.sh h2 .mut{color:var(--grey-l)}
+.sh h2 .o{color:var(--brand)}
+.blk{padding:clamp(30px,5vw,60px) 0}
+
+/* ============================================================
+   WHY CHOOSE (white panel)
+   ============================================================ */
+.why{padding:0 var(--gut)}
+.why-panel{max-width:var(--maxw);margin:0 auto;background:var(--card);border-radius:var(--r-lg);padding:clamp(26px,4vw,56px)}
+.why-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,4vw,48px);align-items:center;margin-top:clamp(26px,3vw,40px)}
+.why-media{position:relative;border-radius:var(--r);overflow:hidden;aspect-ratio:1/1;background:var(--line)}
+.why-media img{width:100%;height:100%;object-fit:cover;object-position:50% 25%}
+.why-media .play{position:absolute;inset:0;margin:auto;width:64px;height:64px;border-radius:50%;background:rgba(255,255,255,.9);display:grid;place-items:center}
+.why-media .play svg{width:22px;height:22px;color:var(--brand-d);margin-left:3px}
+.why-cards{display:grid;gap:14px}
+.wcard{display:flex;gap:16px;align-items:flex-start;background:var(--page);border-radius:18px;padding:20px 22px;transition:.25s var(--ease)}
+.wcard:hover{transform:translateY(-3px)}
+.wcard .ic{width:46px;height:46px;border-radius:50%;background:var(--brand);color:#fff;display:grid;place-items:center;flex:none}
+.wcard .ic svg{width:22px;height:22px}
+.wcard h4{font-family:var(--display);font-size:1.05rem;font-weight:600;margin-bottom:5px}
+.wcard p{color:var(--grey);font-size:.92rem;line-height:1.5}
+
+/* ============================================================
+   TAILORED SERVICES (card grid)
+   ============================================================ */
+.grid-svc{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:clamp(30px,4vw,48px)}
+.gcard{background:var(--card);border-radius:var(--r);padding:22px;display:flex;flex-direction:column;transition:transform .28s var(--ease),box-shadow .28s var(--ease)}
+.gcard:hover{transform:translateY(-5px);box-shadow:0 28px 50px -32px rgba(28,24,19,.35)}
+.gcard .top{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:14px}
+.gcard h4{font-family:var(--display);font-size:1.12rem;font-weight:700;letter-spacing:-.01em;line-height:1.2}
+.gcard p{color:var(--grey);font-size:.86rem;line-height:1.45}
+.gcard .arr{width:34px;height:34px;border-radius:50%;background:var(--page);display:grid;place-items:center;flex:none;transition:.25s}
+.gcard .arr svg{width:15px;height:15px}
+.gcard:hover .arr{background:var(--brand);color:#fff}
+.gcard .thumb{margin-top:16px;border-radius:14px;aspect-ratio:16/10;position:relative;overflow:hidden;display:grid;place-items:center;
+  background:linear-gradient(150deg,var(--brand-tint),#ffe2c9)}
+.gcard .thumb svg{width:46px;height:46px;color:var(--brand-d);opacity:.9}
+.gcard .thumb .tphoto{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:1}
+.gcard .thumb .badge{position:absolute;left:12px;bottom:12px;width:34px;height:34px;border-radius:50%;background:var(--brand);color:#fff;display:grid;place-items:center;z-index:2}
+.gcard .thumb .badge svg{width:17px;height:17px;color:#fff;opacity:1}
+.gcard.hi{background:var(--brand);color:#fff}
+.gcard.hi p{color:rgba(255,255,255,.9)}
+.gcard.hi .arr{background:rgba(255,255,255,.2);color:#fff}
+.gcard.hi .thumb{background:linear-gradient(150deg,#ff9a4d,var(--brand-d))}
+.gcard.hi .thumb svg{color:#fff;opacity:.95}
+
+/* ============================================================
+   FREE REVIEW PANEL  (dark gradient + white card)
+   ============================================================ */
+.model{padding:clamp(30px,5vw,60px) var(--gut)}
+.model-card{max-width:var(--maxw);margin:0 auto;background:var(--dark);border-radius:var(--r-lg);padding:14px;display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.model-left{position:relative;border-radius:var(--r);overflow:hidden;padding:clamp(28px,4vw,46px);color:#fff;
+  background:radial-gradient(120% 120% at 0% 0%,var(--brand) 0%,var(--brand-d) 45%,#7a3410 100%)}
+.model-left h2{font-size:clamp(1.7rem,3vw,2.5rem);font-weight:700;letter-spacing:-.02em}
+.model-left h2 .o{color:#fff;text-decoration:underline;text-decoration-color:rgba(255,255,255,.5);text-underline-offset:5px}
+.mock{display:grid;grid-template-columns:1.2fr 1fr;gap:10px;margin-top:30px}
+.mockcard{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.18);border-radius:12px;padding:13px;backdrop-filter:blur(4px)}
+.mockcard .donut{width:46px;height:46px;border-radius:50%;background:conic-gradient(#fff 0 62%,rgba(255,255,255,.3) 62% 100%);position:relative}
+.mockcard .donut::after{content:"";position:absolute;inset:8px;border-radius:50%;background:var(--brand-d)}
+.mbars{display:flex;align-items:flex-end;gap:5px;height:46px}
+.mbars i{flex:1;background:rgba(255,255,255,.7);border-radius:3px 3px 0 0}
+.mline{height:2px;background:rgba(255,255,255,.25);margin:10px 0}
+.mdot{height:8px;border-radius:5px;background:rgba(255,255,255,.4);margin-top:7px}
+.mdot.s{width:60%}
+.model-right{background:var(--card);border-radius:var(--r);padding:clamp(26px,3vw,38px)}
+.model-right .num{width:42px;height:42px;border-radius:11px;background:var(--brand);color:#fff;display:grid;place-items:center;font-family:var(--display);font-weight:700;font-size:1.1rem;margin-bottom:22px}
+.model-right h3{font-family:var(--display);font-size:1.4rem;font-weight:700;letter-spacing:-.01em;margin-bottom:18px}
+.mrlist{list-style:none;display:grid;gap:11px;margin-bottom:22px}
+.mrlist li{display:flex;align-items:center;gap:11px;font-size:.96rem;color:var(--ink-2)}
+.mrlist .ck{width:20px;height:20px;border-radius:6px;background:var(--brand-tint);color:var(--brand-d);display:grid;place-items:center;flex:none}
+.mrlist .ck svg{width:13px;height:13px}
+.model-right .tlink{display:inline-flex;align-items:center;gap:9px;font-weight:600;color:var(--ink);border-bottom:1.5px solid var(--brand);padding-bottom:3px}
+.model-right .tlink .iconbtn{width:32px;height:32px;background:var(--brand);border-color:var(--brand);color:#fff}
+.model-right .tlink .iconbtn svg{width:14px}
+.chart{margin-top:26px;border-top:1px dashed var(--line);padding-top:20px}
+.chart .cb{display:flex;align-items:flex-end;gap:7px;height:96px}
+.chart .cb i{flex:1;background:var(--line);border-radius:5px 5px 0 0;position:relative}
+.chart .cb i.hi{background:var(--brand)}
+.chart .cl{display:flex;justify-content:space-between;margin-top:8px;font-size:.66rem;color:var(--grey-l)}
+.chart .cap{font-size:.72rem;color:var(--grey-l);margin-top:10px}
+
+/* ============================================================
+   AWARDS + REVIEWS
+   ============================================================ */
+.recog{padding:clamp(40px,6vw,80px) 0}
+.awards-row{display:flex;justify-content:center;align-items:center;gap:clamp(24px,5vw,58px);flex-wrap:wrap;margin:clamp(30px,4vw,48px) 0}
+.awards-row img{height:clamp(86px,10vw,116px);width:auto;filter:drop-shadow(0 16px 30px rgba(28,24,19,.16))}
+.rev-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.rev{background:var(--card);border-radius:var(--r);padding:28px;display:flex;flex-direction:column}
+.rating{display:inline-flex;gap:3px;margin-bottom:14px}
+.rating svg{width:16px;height:16px;fill:var(--brand)}
+.rev blockquote{color:var(--ink-2);font-size:.98rem;line-height:1.55;margin-bottom:18px;flex:1}
+.who{display:flex;align-items:center;gap:12px}
+.av{width:44px;height:44px;border-radius:50%;background:var(--brand);color:#fff;display:grid;place-items:center;font-family:var(--display);font-weight:700;flex:none}
+.who b{display:block;font-weight:600;font-size:.92rem}.who span{font-size:.8rem;color:var(--grey-l)}
+.recog .rc{text-align:center;margin-top:36px}
+
+/* ============================================================
+   FOOTER (big dark gradient)
+   ============================================================ */
+footer{margin:clamp(30px,5vw,60px) var(--gut) 0;padding-bottom:18px}
+.foot{max-width:var(--maxw);margin:0 auto;border-radius:var(--r-lg);color:#fff;overflow:hidden;position:relative;
+  background:radial-gradient(120% 120% at 85% 110%,var(--brand-d) 0%,#5e2a0e 30%,var(--dark) 70%);padding:clamp(36px,5vw,64px) clamp(26px,4vw,56px) 30px}
+.foot-top{display:grid;grid-template-columns:1.5fr 1fr 1fr 1.2fr;gap:clamp(24px,4vw,46px);padding-bottom:38px;border-bottom:1px solid var(--line-d)}
+.foot-brand img{height:46px;filter:brightness(0) invert(1);margin-bottom:16px}
+.foot-brand p{color:rgba(255,255,255,.72);max-width:30ch;font-size:.93rem}
+.foot-news{margin-top:20px}
+.foot-news label{font-size:.82rem;color:rgba(255,255,255,.7);display:block;margin-bottom:9px}
+.news-row{display:flex;background:rgba(255,255,255,.1);border:1px solid var(--line-d);border-radius:100px;padding:5px 5px 5px 16px;max-width:340px}
+.news-row input{flex:1;background:none;border:0;color:#fff;font-family:inherit;font-size:.88rem;outline:none}
+.news-row input::placeholder{color:rgba(255,255,255,.5)}
+.news-row button{flex:none;border:0;cursor:pointer;background:var(--brand);color:#fff;font-family:var(--sans);font-weight:600;font-size:.85rem;padding:9px 16px;border-radius:100px;display:inline-flex;align-items:center;gap:6px}
+.foot-col h5{font-size:.72rem;letter-spacing:.13em;text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:15px}
+.foot-col a,.foot-col p{display:block;color:rgba(255,255,255,.82);padding:6px 0;font-size:.92rem}
+.foot-col a:hover{color:#fff}
+.foot-bot{display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap;align-items:center;padding-top:24px;font-size:.8rem;color:rgba(255,255,255,.6)}
+.socials{display:flex;gap:9px}
+.socials a{width:36px;height:36px;border-radius:50%;border:1px solid var(--line-d);display:grid;place-items:center;font-size:.7rem;font-weight:600;transition:.2s}
+.socials a:hover{background:var(--brand);border-color:var(--brand)}
+
+/* mobile sticky cta */
+.mcta{position:fixed;left:0;right:0;bottom:0;z-index:60;display:none;gap:10px;padding:11px 14px calc(11px + env(safe-area-inset-bottom));
+  background:rgba(237,234,228,.96);backdrop-filter:blur(10px);border-top:1px solid var(--line);transform:translateY(120%);transition:transform .4s var(--ease)}
+.mcta.show{transform:none}
+.mcta .btn{flex:1;justify-content:center;padding:14px}.mcta .btn-line{flex:none;width:54px;padding:14px 0}
+
+.rv{opacity:0;transform:translateY(24px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
+.rv.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){.rv{opacity:1;transform:none}}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media(max-width:1000px){
+  .menu,.nav-phone b,.nav-phone span{display:none}
+  .burger{display:flex}
+  .nav-phone .ic{display:grid}
+  .hero-inner{grid-template-columns:1fr;gap:24px}
+  .statement .wrap{grid-template-columns:1fr;gap:10px}
+  .svc-intro .wrap{grid-template-columns:1fr;gap:30px}
+  .why-grid{grid-template-columns:1fr}
+  .why-media{aspect-ratio:16/10}
+  .grid-svc{grid-template-columns:repeat(2,1fr)}
+  .model-card{grid-template-columns:1fr}
+  .rev-grid{grid-template-columns:1fr}
+  .foot-top{grid-template-columns:1fr 1fr}
+}
+@media(max-width:600px){
+  body{padding-bottom:74px}
+  .grid-svc{grid-template-columns:1fr}
+  .mock{grid-template-columns:1fr}
+  .foot-top{grid-template-columns:1fr}
+  .mcta{display:flex}
+  .hero-card{min-height:560px}
+}
+</style>
+</head>
+<body>
+
+<!-- ===================== HEADER ===================== -->
+<header>
+  <nav class="nav">
+    <a href="#top" class="brand" aria-label="Orange Mortgage &amp; Finance Brokers"><img src="https://of-1835d.kxcdn.com/wp-content/uploads/2017/12/Orange-Mortgage-and-Finance-Brokers-Logo-transparent-sm.png" alt="Orange Mortgage & Finance Brokers logo"></a>
+    <ul class="menu">
+      <li class="on"><a href="#top">Home</a></li>
+      <li>
+        <a>Home Loans <svg class="ca" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="m6 9 6 6 6-6"/></svg></a>
+        <div class="dd">
+          <a href="https://www.orangefinance.net.au/first-home-buyers-finance/">First Home Buyers</a>
+          <a href="https://www.orangefinance.net.au/refinance-home-loan/">Refinancing</a>
+          <a href="https://www.orangefinance.net.au/construction-loan/">Construction Loans</a>
+          <a href="https://www.orangefinance.net.au/investment-loans/">Investment Loans</a>
+          <a href="https://www.orangefinance.net.au/smsf-mortgage/">SMSF Mortgage</a>
+          <a href="https://www.orangefinance.net.au/parental-guarantee/">Parental Guarantees</a>
+        </div>
+      </li>
+      <li><a href="#why">Why Us</a></li>
+      <li><a href="#process">How It Works</a></li>
+      <li><a href="https://www.orangefinance.net.au/calculators/">Calculators</a></li>
+      <li><a href="#reviews">Reviews</a></li>
+    </ul>
+    <div class="nav-right">
+      <a href="tel:+61425212636" class="nav-phone">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg></span>
+        <span class="tx"><b>0425 212 636</b><span>Call or text Laszlo</span></span>
+      </a>
+      <a href="#contact" class="btn btn-brand">Book a free chat</a>
+      <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+</header>
+
+<div class="drawer" id="drawer">
+  <div class="dh">
+    <img src="https://of-1835d.kxcdn.com/wp-content/uploads/2017/12/Orange-Mortgage-and-Finance-Brokers-Logo-transparent-sm.png" alt="Orange Mortgage & Finance Brokers logo">
+    <button class="drawer-x" id="drawerX" aria-label="Close">×</button>
+  </div>
+  <nav>
+    <a href="#services">Home Loans</a>
+    <a href="#why">Why Us</a>
+    <a href="#process">How It Works</a>
+    <a href="https://www.orangefinance.net.au/calculators/">Calculators</a>
+    <a href="#reviews">Reviews</a>
+    <a href="#contact">Contact</a>
+  </nav>
+  <div class="df">
+    <a href="#contact" class="btn btn-brand">Book a free chat</a>
+    <a href="tel:+61425212636" class="btn btn-line" style="color:#fff;border-color:rgba(255,255,255,.35)">Call 0425 212 636</a>
+  </div>
+</div>
+
+<span id="top"></span>
+
+<!-- ===================== HERO ===================== -->
+<section class="hero">
+  <div class="hero-card">
+    <div class="bg"><img src="images/hero.jpg" alt="A warm Australian home at golden hour" onerror="this.onerror=null;this.src='https://of-1835d.kxcdn.com/wp-content/uploads/2021/02/Orange-Finance-Mortgage-Broker-Perth.jpg'"></div>
+    <div class="hero-inner">
+      <div>
+        <span class="hero-loc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 6-9 12-9 12s-9-6-9-12a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg> North Perth · serving buyers across WA</span>
+        <h1>Get the right home loan and <span class="o">keep more in your pocket</span></h1>
+        <div class="hero-cta">
+          <a href="#contact" class="btn btn-brand">Book a free chat
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M7 7h10v10"/></svg></a>
+          <a href="tel:+61425212636" class="btn btn-wht">Call 0425 212 636</a>
+        </div>
+      </div>
+      <div class="hero-stats">
+        <div class="hstat">
+          <span class="tx"><b>2× winner</b><span>RateMyAgent WA Broker of the Year, 2024 &amp; 2025</span></span>
+          <span class="gr"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8 21h8M12 17v4M7 4h10v4a5 5 0 0 1-10 0z"/><path d="M17 5h3v2a3 3 0 0 1-3 3M7 5H4v2a3 3 0 0 0 3 3"/></svg></span>
+        </div>
+        <div class="hstat">
+          <span class="tx"><b>30+ lenders</b><span>Compared in one application to find your sharpest rate</span></span>
+          <span class="gr"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg></span>
+        </div>
+        <div class="hstat">
+          <span class="tx"><b>$0 cost</b><span>Our broking service is free. We're paid by the lender</span></span>
+          <span class="gr"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 4 6v6c0 5 3.5 8 8 10 4.5-2 8-5 8-10V6z"/><path d="m9 12 2 2 4-4"/></svg></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== STATEMENT ===================== -->
+<section class="statement">
+  <div class="wrap">
+    <span class="tag-lab" style="margin-top:6px"><span class="sq"></span> About Us</span>
+    <p class="big rv">We compare, we negotiate, we manage. <span class="o">You save.</span> From the first chat to settlement, and every yearly review after, we handle the lenders, the paperwork and the fine print. Honest advice, zero cost, more in your pocket. <span class="mut">We do the legwork,</span> <span class="o">you get the keys.</span></p>
+  </div>
+</section>
+
+<!-- ===================== SERVICES INTRO (image + numbered list) ===================== -->
+<section class="svc-intro">
+  <div class="wrap">
+    <div class="svc-photo rv"><img src="https://of-1835d.kxcdn.com/wp-content/uploads/2021/02/Orange-Finance-Laszlo-Szollosi.jpg" alt="Laszlo Szollosi, Director and Senior Credit Adviser"></div>
+    <div class="svc-list rv">
+      <div class="hd"><span class="tag-lab"><span class="sq"></span> How we work</span></div>
+      <a class="svc-row" href="#contact"><span class="n">01</span><h3>We find the right lender</h3><span class="iconbtn"><svg viewBox="0 0 24 24" fill="none" stroke="#1b1814" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M7 7h10v10"/></svg></span></a>
+      <a class="svc-row" href="#contact"><span class="n">02</span><h3>We structure your loan</h3><span class="iconbtn"><svg viewBox="0 0 24 24" fill="none" stroke="#1b1814" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M7 7h10v10"/></svg></span></a>
+      <a class="svc-row" href="#contact"><span class="n">03</span><h3>We manage the application</h3><span class="iconbtn"><svg viewBox="0 0 24 24" fill="none" stroke="#1b1814" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M7 7h10v10"/></svg></span></a>
+      <a class="svc-row" href="#contact"><span class="n">04</span><h3>We review it every year</h3><span class="iconbtn"><svg viewBox="0 0 24 24" fill="none" stroke="#1b1814" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M7 7h10v10"/></svg></span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== WHY CHOOSE ===================== -->
+<section class="why" id="why">
+  <div class="why-panel">
+    <div class="sh rv">
+      <span class="tag-lab"><span class="sq"></span> Why Choose Us</span>
+      <h2>Why choose Orange for your <span class="o">home loan?</span></h2>
+    </div>
+    <div class="why-grid">
+      <div class="why-media rv">
+        <img src="https://of-1835d.kxcdn.com/wp-content/uploads/2021/02/Orange-Finance-Laszlo-Szollosi.jpg" alt="Laszlo Szollosi, Orange Mortgage & Finance Brokers">
+      </div>
+      <div class="why-cards rv">
+        <div class="wcard">
+          <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8 21h8M12 17v4M7 4h10v4a5 5 0 0 1-10 0z"/></svg></span>
+          <div><h4>Award-winning &amp; trusted</h4><p>RateMyAgent WA Broker of the Year in 2024 and 2025, and Top 20 in Australia.</p></div>
+        </div>
+        <div class="wcard">
+          <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M5.5 21a7 7 0 0 1 13 0"/></svg></span>
+          <div><h4>Owner-operated</h4><p>You deal with Laszlo from first chat to settlement, and long after. Never a call centre.</p></div>
+        </div>
+        <div class="wcard">
+          <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg></span>
+          <div><h4>30+ lenders compared</h4><p>The big four and specialist lenders, weighed up in one go to find your sharpest rate.</p></div>
+        </div>
+        <div class="wcard">
+          <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 4 6v6c0 5 3.5 8 8 10 4.5-2 8-5 8-10V6z"/><path d="m9 12 2 2 4-4"/></svg></span>
+          <div><h4>No cost to you</h4><p>We're paid by the lender, so expert advice that works for you is genuinely free.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== TAILORED SERVICES GRID ===================== -->
+<section class="blk" id="services">
+  <div class="wrap">
+    <div class="sh center rv">
+      <span class="tag-lab" style="justify-content:center"><span class="sq"></span> Our Home Loans</span>
+      <h2>Home loans <span class="mut">tailored to</span> your goals</h2>
+    </div>
+    <div class="grid-svc">
+      <a class="gcard rv" href="https://www.orangefinance.net.au/first-home-buyers-finance/">
+        <div class="top"><h4>First Home Buyers</h4><span class="arr"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M7 7h10v10"/></svg></span></div>
+        <p>Plain English and help with the First Home Guarantee, so you buy sooner.</p>
+        <div class="thumb"><img class="tphoto" src="images/first-home.jpg" alt="First home buyers couple with keys" onerror="this.remove()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="m3 10 9-7 9 7v10a1 1 0 0 1-1 1h-5v-7H9v7H4a1 1 0 0 1-1-1z"/></svg><span class="badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/></svg></span></div>
+      </a>
+      <a class="gcard hi rv" href="https://www.orangefinance.net.au/refinance-home-loan/">
+        <div class="top"><h4>Refinancing</h4><span class="arr"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M7 7h10v10"/></svg></span></div>
+        <p>A lower rate and the right structure. We only move you when it pays off.</p>
+        <div class="thumb"><img class="tphoto" src="images/refinance.jpg" alt="Reviewing home loan documents at home" onerror="this.remove()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 0 1 15-6.7L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-15 6.7L3 16"/><path d="M3 21v-5h5"/></svg><span class="badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/></svg></span></div>
+      </a>
+      <a class="gcard rv" href="https://www.orangefinance.net.au/construction-loan/">
+        <div class="top"><h4>Construction</h4><span class="arr"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M7 7h10v10"/></svg></span></div>
+        <p>Building? We make sure your application has everything the bank wants.</p>
+        <div class="thumb"><img class="tphoto" src="images/construction.jpg" alt="New home under construction in Perth" onerror="this.remove()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2 20h20"/><path d="M4 20V9l8-5 8 5v11"/><path d="M9 20v-6h6v6"/></svg><span class="badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/></svg></span></div>
+      </a>
+      <a class="gcard rv" href="https://www.orangefinance.net.au/investment-loans/">
+        <div class="top"><h4>Investment</h4><span class="arr"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M7 7h10v10"/></svg></span></div>
+        <p>Lending structured to grow and protect your property portfolio.</p>
+        <div class="thumb"><img class="tphoto" src="images/investment.jpg" alt="Modern Australian investment property" onerror="this.remove()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="m7 14 4-4 3 3 5-6"/></svg><span class="badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/></svg></span></div>
+      </a>
+      <a class="gcard rv" href="https://www.orangefinance.net.au/smsf-mortgage/">
+        <div class="top"><h4>SMSF Mortgage</h4><span class="arr"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M7 7h10v10"/></svg></span></div>
+        <p>Buy property through your self-managed super fund, structured correctly.</p>
+        <div class="thumb"><img class="tphoto" src="images/smsf.jpg" alt="Couple reviewing SMSF property paperwork" onerror="this.remove()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V10l7-5 7 5v11M10 21v-6h4v6"/></svg><span class="badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/></svg></span></div>
+      </a>
+      <a class="gcard rv" href="https://www.orangefinance.net.au/parental-guarantee/">
+        <div class="top"><h4>Parental Guarantees</h4><span class="arr"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M7 7h10v10"/></svg></span></div>
+        <p>Family help you in sooner, often avoiding Lenders Mortgage Insurance.</p>
+        <div class="thumb"><img class="tphoto" src="images/parental-guarantee.jpg" alt="Family supporting a first home purchase" onerror="this.remove()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.5-1.5 2-3 2-4.5A3.5 3.5 0 0 0 12 7a3.5 3.5 0 0 0-9 2.5C3 11 3.5 12.5 5 14l7 7z"/></svg><span class="badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/></svg></span></div>
+      </a>
+      <a class="gcard rv" href="https://www.orangefinance.net.au/new-arrivals/">
+        <div class="top"><h4>New Arrivals</h4><span class="arr"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M7 7h10v10"/></svg></span></div>
+        <p>New to Australia or on a temporary visa? We know which lenders say yes.</p>
+        <div class="thumb"><img class="tphoto" src="images/new-arrivals.jpg" alt="New-arrival family at their first home" onerror="this.remove()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a15 15 0 0 1 0 18 15 15 0 0 1 0-18z"/></svg><span class="badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/></svg></span></div>
+      </a>
+      <a class="gcard rv" href="https://www.orangefinance.net.au/calculators/">
+        <div class="top"><h4>Calculators</h4><span class="arr"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M7 7h10v10"/></svg></span></div>
+        <p>Repayments, offset, stamp duty and borrowing power at a glance.</p>
+        <div class="thumb"><img class="tphoto" src="images/calculators.jpg" alt="Calculator, laptop and keys on a desk" onerror="this.remove()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2"/><path d="M8 6h8M8 10h2m4 0h2M8 14h2m4 0h2M8 18h2m4 0h2"/></svg><span class="badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/></svg></span></div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== FREE REVIEW PANEL ===================== -->
+<section class="model" id="process">
+  <div class="model-card">
+    <div class="model-left rv">
+      <span class="tag-lab" style="color:#fff"><span class="sq" style="background:#fff"></span> Your free review</span>
+      <h2 style="margin-top:14px">The free home loan review <span class="o">includes:</span></h2>
+      <div class="mock">
+        <div class="mockcard"><div class="donut"></div><div class="mdot"></div><div class="mdot s"></div></div>
+        <div class="mockcard"><div class="mbars"><i style="height:40%"></i><i style="height:65%"></i><i style="height:50%"></i><i style="height:85%"></i><i style="height:60%"></i></div></div>
+        <div class="mockcard" style="grid-column:span 2"><div class="mline"></div><div class="mbars" style="height:34px"><i style="height:50%"></i><i style="height:70%"></i><i style="height:45%"></i><i style="height:90%"></i><i style="height:60%"></i><i style="height:75%"></i><i style="height:55%"></i></div></div>
+      </div>
+    </div>
+    <div class="model-right rv">
+      <div class="num">1</div>
+      <h3>What we'll show you</h3>
+      <ul class="mrlist">
+        <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg></span> Borrowing power across 30+ lenders</li>
+        <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg></span> Rate &amp; repayment comparison</li>
+        <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg></span> Refinance savings estimate</li>
+        <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg></span> Loan structure &amp; offset strategy</li>
+      </ul>
+      <a href="#contact" class="tlink">Request your review <span class="iconbtn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M7 7h10v10"/></svg></span></a>
+      <div class="chart">
+        <div class="cb"><i style="height:88%"></i><i style="height:72%"></i><i style="height:60%"></i><i class="hi" style="height:46%"></i></div>
+        <div class="cl"><span>Your bank</span><span>Lender B</span><span>Lender C</span><span>Best fit</span></div>
+        <p class="cap">Illustrative monthly repayment comparison. Your result depends on your circumstances.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== AWARDS + REVIEWS ===================== -->
+<section class="recog" id="reviews">
+  <div class="wrap">
+    <div class="sh center rv">
+      <span class="tag-lab" style="justify-content:center"><span class="sq"></span> Recognition</span>
+      <h2>Among Australia's <span class="o">most awarded</span> brokers</h2>
+    </div>
+    <div class="awards-row rv">
+      <a href="https://www.ratemyagent.com.au/mortgage-broker/laszlo-szollosi-gv662/finance/overview" target="_blank" rel="noopener"><img src="https://of-1835d.kxcdn.com/wp-content/uploads/2025/09/2025-WA-RateMyAgentWinner-300x300.png" alt="RateMyAgent WA Broker of the Year 2025"></a>
+      <a href="https://www.ratemyagent.com.au/mortgage-broker/laszlo-szollosi-gv662/finance/overview" target="_blank" rel="noopener"><img src="https://of-1835d.kxcdn.com/wp-content/uploads/2025/09/2024-WA-Winner-350x350-1-300x300.png" alt="RateMyAgent WA Broker of the Year 2024"></a>
+      <a href="https://www.ratemyagent.com.au/mortgage-broker/laszlo-szollosi-gv662/finance/overview" target="_blank" rel="noopener"><img src="https://of-1835d.kxcdn.com/wp-content/uploads/2025/09/2025-Australia-RateMyAgentTop20-300x300.png" alt="Top 20 Broker Australia 2025"></a>
+      <a href="https://www.ratemyagent.com.au/mortgage-broker/laszlo-szollosi-gv662/finance/overview" target="_blank" rel="noopener"><img src="https://of-1835d.kxcdn.com/wp-content/uploads/2025/09/2024-Australia-350x350-1-300x300.png" alt="Top 20 Broker Australia 2024"></a>
+    </div>
+    <div class="rev-grid">
+      <div class="rev rv">
+        <span class="rating"><svg viewBox="0 0 24 24"><path d="m12 2 3 6.3 6.9.9-5 4.8 1.2 6.9L12 18.6 5.9 21l1.2-6.9-5-4.8 6.9-.9z"/></svg><svg viewBox="0 0 24 24"><path d="m12 2 3 6.3 6.9.9-5 4.8 1.2 6.9L12 18.6 5.9 21l1.2-6.9-5-4.8 6.9-.9z"/></svg><svg viewBox="0 0 24 24"><path d="m12 2 3 6.3 6.9.9-5 4.8 1.2 6.9L12 18.6 5.9 21l1.2-6.9-5-4.8 6.9-.9z"/></svg><svg viewBox="0 0 24 24"><path d="m12 2 3 6.3 6.9.9-5 4.8 1.2 6.9L12 18.6 5.9 21l1.2-6.9-5-4.8 6.9-.9z"/></svg><svg viewBox="0 0 24 24"><path d="m12 2 3 6.3 6.9.9-5 4.8 1.2 6.9L12 18.6 5.9 21l1.2-6.9-5-4.8 6.9-.9z"/></svg></span>
+        <blockquote>"Laszlo was extremely approachable, helpful and efficient when we moved house, and continued to follow up after to make sure we got the best rate possible for our situation."</blockquote>
+        <div class="who"><span class="av">E</span><div><b>Emily, Kensington</b><span>Home Upgrade</span></div></div>
+      </div>
+      <div class="rev rv">
+        <span class="rating"><svg viewBox="0 0 24 24"><path d="m12 2 3 6.3 6.9.9-5 4.8 1.2 6.9L12 18.6 5.9 21l1.2-6.9-5-4.8 6.9-.9z"/></svg><svg viewBox="0 0 24 24"><path d="m12 2 3 6.3 6.9.9-5 4.8 1.2 6.9L12 18.6 5.9 21l1.2-6.9-5-4.8 6.9-.9z"/></svg><svg viewBox="0 0 24 24"><path d="m12 2 3 6.3 6.9.9-5 4.8 1.2 6.9L12 18.6 5.9 21l1.2-6.9-5-4.8 6.9-.9z"/></svg><svg viewBox="0 0 24 24"><path d="m12 2 3 6.3 6.9.9-5 4.8 1.2 6.9L12 18.6 5.9 21l1.2-6.9-5-4.8 6.9-.9z"/></svg><svg viewBox="0 0 24 24"><path d="m12 2 3 6.3 6.9.9-5 4.8 1.2 6.9L12 18.6 5.9 21l1.2-6.9-5-4.8 6.9-.9z"/></svg></span>
+        <blockquote>"Refinancing was easy and stress free. He secured the best rates and products. I highly recommend speaking with Laz for all your financing needs."</blockquote>
+        <div class="who"><span class="av">A</span><div><b>Ali, Jolimont</b><span>Refinancing</span></div></div>
+      </div>
+      <div class="rev rv">
+        <span class="rating"><svg viewBox="0 0 24 24"><path d="m12 2 3 6.3 6.9.9-5 4.8 1.2 6.9L12 18.6 5.9 21l1.2-6.9-5-4.8 6.9-.9z"/></svg><svg viewBox="0 0 24 24"><path d="m12 2 3 6.3 6.9.9-5 4.8 1.2 6.9L12 18.6 5.9 21l1.2-6.9-5-4.8 6.9-.9z"/></svg><svg viewBox="0 0 24 24"><path d="m12 2 3 6.3 6.9.9-5 4.8 1.2 6.9L12 18.6 5.9 21l1.2-6.9-5-4.8 6.9-.9z"/></svg><svg viewBox="0 0 24 24"><path d="m12 2 3 6.3 6.9.9-5 4.8 1.2 6.9L12 18.6 5.9 21l1.2-6.9-5-4.8 6.9-.9z"/></svg><svg viewBox="0 0 24 24"><path d="m12 2 3 6.3 6.9.9-5 4.8 1.2 6.9L12 18.6 5.9 21l1.2-6.9-5-4.8 6.9-.9z"/></svg></span>
+        <blockquote>"The service from Laszlo is second to none. There's never a question too silly and he always gives you all the detail you need. We feel in safe hands with his advice."</blockquote>
+        <div class="who"><span class="av">S</span><div><b>Steven, Wilson</b><span>Construction Loan</span></div></div>
+      </div>
+    </div>
+    <div class="rc rv"><a href="https://www.ratemyagent.com.au/mortgage-broker/laszlo-szollosi-gv662/finance/overview" target="_blank" rel="noopener" class="btn btn-line">Read every review on RateMyAgent
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M7 7h10v10"/></svg></a></div>
+  </div>
+</section>
+
+<!-- ===================== CONTACT ===================== -->
+<section class="model" id="contact">
+  <div class="model-card">
+    <div class="model-left rv">
+      <span class="tag-lab" style="color:#fff"><span class="sq" style="background:#fff"></span> Let's talk loans</span>
+      <h2 style="margin-top:14px">Book a free, no-obligation chat with Laszlo</h2>
+      <ul class="mrlist" style="margin-top:26px">
+        <li style="color:#fff"><span class="ck" style="background:rgba(255,255,255,.2);color:#fff"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg></span> <a href="tel:+61425212636" style="color:#fff">0425 212 636</a></li>
+        <li style="color:#fff"><span class="ck" style="background:rgba(255,255,255,.2);color:#fff"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 6-9 12-9 12s-9-6-9-12a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></span> Unit 10/46 Angove Street, North Perth WA 6006</li>
+        <li style="color:#fff"><span class="ck" style="background:rgba(255,255,255,.2);color:#fff"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2 4 6v6c0 5 3.5 8 8 10 4.5-2 8-5 8-10V6z"/></svg></span> MFAA accredited · Australian Credit Licence 390618</li>
+      </ul>
+    </div>
+    <div class="model-right rv">
+      <h3>Book a free chat</h3>
+      <p style="color:var(--grey);font-size:.94rem;margin:-8px 0 20px">Tell us a little about you and we'll be in touch within one business day.</p>
+      <form action="https://formspree.io/f/your-form-id" method="POST">
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+          <div class="field" style="margin-bottom:12px"><input name="first_name" type="text" placeholder="First name" autocomplete="given-name" required style="width:100%;font-family:inherit;font-size:.96rem;background:var(--page);border:1.5px solid transparent;border-radius:11px;padding:13px 14px"></div>
+          <div class="field" style="margin-bottom:12px"><input name="last_name" type="text" placeholder="Last name" autocomplete="family-name" required style="width:100%;font-family:inherit;font-size:.96rem;background:var(--page);border:1.5px solid transparent;border-radius:11px;padding:13px 14px"></div>
+        </div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+          <div style="margin-bottom:12px"><input name="email" type="email" placeholder="Email" autocomplete="email" required style="width:100%;font-family:inherit;font-size:.96rem;background:var(--page);border:1.5px solid transparent;border-radius:11px;padding:13px 14px"></div>
+          <div style="margin-bottom:12px"><input name="phone" type="tel" placeholder="Phone" autocomplete="tel" required style="width:100%;font-family:inherit;font-size:.96rem;background:var(--page);border:1.5px solid transparent;border-radius:11px;padding:13px 14px"></div>
+        </div>
+        <div style="margin-bottom:12px"><select name="goal" required style="width:100%;font-family:inherit;font-size:.96rem;background:var(--page);border:1.5px solid transparent;border-radius:11px;padding:13px 14px;color:var(--ink)">
+          <option value="" disabled selected>What can we help with?</option>
+          <option>Buying my first home</option><option>Buying / upgrading a home</option><option>Refinancing my loan</option><option>Building / construction loan</option><option>Investment property</option><option>SMSF mortgage</option><option>Something else</option>
+        </select></div>
+        <div style="margin-bottom:6px"><textarea name="message" placeholder="Anything else? (optional)" style="width:100%;font-family:inherit;font-size:.96rem;background:var(--page);border:1.5px solid transparent;border-radius:11px;padding:13px 14px;min-height:92px;resize:vertical"></textarea></div>
+        <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px">
+        <button type="submit" class="btn btn-brand" style="width:100%;justify-content:center;margin-top:6px">Request my callback
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M7 7h10v10"/></svg></button>
+        <p style="font-size:.76rem;color:var(--grey-l);margin-top:12px;text-align:center">No obligation. No cost. Your details stay private.</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== FOOTER ===================== -->
+<footer>
+  <div class="foot">
+    <div class="foot-top">
+      <div class="foot-brand">
+        <img src="https://of-1835d.kxcdn.com/wp-content/uploads/2017/12/Orange-Mortgage-and-Finance-Brokers-Logo-transparent-sm.png" alt="Orange Mortgage & Finance Brokers logo">
+        <p>Experienced, tailored and thoughtful mortgage broking in North Perth. Above all, we work for you, not the bank.</p>
+        <div class="foot-news">
+          <label>Get RBA rate updates &amp; tips</label>
+          <form class="news-row" action="https://formspree.io/f/your-form-id" method="POST">
+            <input type="email" name="email" placeholder="Your email address" required>
+            <button type="submit">Sign up <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:13px;height:13px"><path d="M7 17 17 7M7 7h10v10"/></svg></button>
+          </form>
+        </div>
+      </div>
+      <div class="foot-col"><h5>Home Loans</h5>
+        <a href="https://www.orangefinance.net.au/first-home-buyers-finance/">First Home Buyers</a>
+        <a href="https://www.orangefinance.net.au/refinance-home-loan/">Refinancing</a>
+        <a href="https://www.orangefinance.net.au/construction-loan/">Construction</a>
+        <a href="https://www.orangefinance.net.au/investment-loans/">Investment</a>
+        <a href="https://www.orangefinance.net.au/smsf-mortgage/">SMSF Mortgage</a>
+      </div>
+      <div class="foot-col"><h5>Resources</h5>
+        <a href="https://www.orangefinance.net.au/how-it-works/">How to get a loan</a>
+        <a href="https://www.orangefinance.net.au/calculators/">Calculators</a>
+        <a href="https://www.orangefinance.net.au/interesting-articles-about-property-and-finance/">Articles</a>
+        <a href="https://www.orangefinance.net.au/us/">About Laszlo</a>
+        <a href="https://www.orangefinance.net.au/testimonials/">Testimonials</a>
+      </div>
+      <div class="foot-col"><h5>North Perth Office</h5>
+        <p>Unit 10/46 Angove Street<br>North Perth, WA 6006</p>
+        <a href="tel:+61425212636">0425 212 636</a>
+        <a href="https://www.orangefinance.net.au/contact/">Contact us</a>
+      </div>
+    </div>
+    <div class="foot-bot">
+      <span>© <span id="yr"></span> Orange Mortgage &amp; Finance Brokers · Australian Credit Licence 390618 · ABN 55 143 493 127</span>
+      <div class="socials"><a href="https://www.google.com/maps?cid=7556790498611785068" target="_blank" rel="noopener" aria-label="Google">G</a><a href="https://www.ratemyagent.com.au/mortgage-broker/laszlo-szollosi-gv662/finance/overview" target="_blank" rel="noopener" aria-label="RateMyAgent">★</a></div>
+    </div>
+  </div>
+</footer>
+
+<div class="mcta" id="mcta">
+  <a href="#contact" class="btn btn-brand">Book a free chat</a>
+  <a href="tel:+61425212636" class="btn btn-line" aria-label="Call"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg></a>
+</div>
+
+<script>
+document.getElementById('yr').textContent=new Date().getFullYear();
+const mcta=document.getElementById('mcta');
+addEventListener('scroll',()=>{mcta.classList.toggle('show',scrollY>700);},{passive:true});
+
+const drawer=document.getElementById('drawer');
+document.getElementById('burger').onclick=()=>{drawer.classList.add('open');document.body.style.overflow='hidden';};
+const close=()=>{drawer.classList.remove('open');document.body.style.overflow='';};
+document.getElementById('drawerX').onclick=close;
+drawer.querySelectorAll('a').forEach(a=>a.addEventListener('click',close));
+
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}}),{threshold:.12,rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
